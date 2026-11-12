@@ -9,12 +9,12 @@ export const BrainSplitOverlay = forwardRef<HTMLDivElement>(
       <div
         ref={ref}
         aria-hidden="true"
-        className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-between px-5 py-6 text-[#0a0a0a] opacity-0 sm:px-8 sm:py-8 lg:block lg:p-0"
+        className="pointer-events-none absolute inset-0 z-10 flex flex-col justify-between px-5 pt-[5.5rem] pb-6 text-[#0a0a0a] opacity-0 sm:px-8 sm:pt-[6rem] sm:pb-8 lg:block lg:p-0"
       >
         {/* Top-left: 3-line thin display headline */}
         <h1
           data-brain-reveal
-          className="font-sans text-[2.25rem] leading-[0.94] font-light tracking-[-0.03em] text-[#0a0a0a] sm:text-[3rem] lg:absolute lg:top-[6.8vw] lg:left-[2.2vw] lg:w-[34vw] lg:text-[4.6vw]"
+          className="font-sans text-[2.25rem] leading-[0.94] font-light tracking-[-0.03em] text-[#0a0a0a] sm:text-[3rem] lg:absolute lg:top-[8.5vw] lg:left-[2.2vw] lg:w-[34vw] lg:text-[4.6vw]"
         >
           {HERO_STAGE_02_COPY.headlineLines.map((line, index) => {
             const isJarisLine = line.includes("JARIS");
