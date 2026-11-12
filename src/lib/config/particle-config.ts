@@ -15,13 +15,13 @@ export interface DeviceTierProfile {
 }
 
 export const HERO_STAGE_02_COPY = {
-  headlineLines: ["Inteligência", "coletiva em", "operação"] as const,
+  headlineLines: ["JARIS Gestão", "Empresarial", "Inteligente"] as const,
   leftDescription:
-    "MÚLTIPLOS AGENTES DE IA ATUANDO DE FORMA INTEGRADA EM TODA A EMPRESA.",
+    "Uma plataforma modular movida a Inteligência Artificial nativa em cada processo.",
   ctaLabel: "Explorar Plataforma",
   ctaHref: "#plataforma",
-  rightTag: "DIVISÃO DE TAREFAS, RESULTADO ÚNICO",
-  rightQuoteLines: ["Uma colônia,", "uma mente"] as const,
+  rightTagLines: ["Centralize operações", "Otimize decisões"] as const,
+  rightQuoteLines: ["Inteligência coletiva", "em operação"] as const,
 } as const;
 
 export const PARTICLE_CONFIG = {

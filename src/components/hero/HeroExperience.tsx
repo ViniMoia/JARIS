@@ -5,6 +5,7 @@ import { useCallback, useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { AntParticleSystem } from "./particles/ParticleSystem";
+import { VesperBrainSystem } from "./vesper/VesperBrainSystem";
 import { BrainSplitOverlay } from "./BrainSplitOverlay";
 import { ScrollIndicator } from "./ScrollIndicator";
 
@@ -26,8 +27,11 @@ export function HeroExperience() {
   const stageRef = useRef<HTMLDivElement | null>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
+  const vesperContainerRef = useRef<HTMLDivElement | null>(null);
+  const antContainerRef = useRef<HTMLDivElement | null>(null);
 
   const systemRef = useRef<AntParticleSystem | null>(null);
+  const vesperSystemRef = useRef<VesperBrainSystem | null>(null);
   const morphProgressRef = useRef(0);
 
   const handleSystemReady = useCallback((system: AntParticleSystem | null) => {
@@ -42,7 +46,13 @@ export function HeroExperience() {
     const stage = stageRef.current;
     const indicator = scrollIndicatorRef.current;
     const overlay = overlayRef.current;
-    if (!section || !stage || !overlay) return;
+    const vesperContainer = vesperContainerRef.current;
+    const antContainer = antContainerRef.current;
+    if (!section || !stage || !overlay || !vesperContainer) return;
+
+    // Initialize original Vesper Brain 3D System
+    const vesperSystem = new VesperBrainSystem(vesperContainer);
+    vesperSystemRef.current = vesperSystem;
 
     gsap.registerPlugin(ScrollTrigger);
     ScrollTrigger.config({ ignoreMobileResize: true });
@@ -55,11 +65,18 @@ export function HeroExperience() {
     const ctaContainer = overlay.querySelector<HTMLElement>("[data-brain-cta]");
 
     const syncStage = (scrollProgress: number) => {
-      // Morph completes by 82% of the pinned scroll runway so the brain rests poised
-      // while the Split Overlay finishes settling into place.
-      const morphP = Math.min(1, Math.max(0, scrollProgress / 0.82));
+      // 1. Ant burst & fade out as scroll reaches the mid-stage
+      const morphP = Math.min(1, Math.max(0, scrollProgress / 0.70));
       morphProgressRef.current = morphP;
       systemRef.current?.setMorphProgress(morphP);
+
+      if (antContainer) {
+        const antAlpha = Math.max(0, 1 - smoothstep(0.35, 0.65, scrollProgress));
+        antContainer.style.opacity = antAlpha.toFixed(3);
+      }
+
+      // 2. Vesper Brain System emerges faithful to the original Vesper scene
+      vesperSystem.setScrollProgress(scrollProgress);
 
       if (indicator) {
         const indicatorAlpha = Math.max(0, 1 - scrollProgress / 0.12);
@@ -90,6 +107,22 @@ export function HeroExperience() {
       }
     };
 
+    const handlePointerMove = (e: PointerEvent) => {
+      const rect = stage.getBoundingClientRect();
+      const ndcX = ((e.clientX - rect.left) / rect.width) * 2 - 1;
+      const ndcY = -(((e.clientY - rect.top) / rect.height) * 2 - 1);
+      systemRef.current?.setPointerFromNormalizedDevice(ndcX, ndcY, true);
+      vesperSystem.setPointerNdc(ndcX, ndcY, true);
+    };
+
+    const handlePointerLeave = () => {
+      systemRef.current?.setPointerFromNormalizedDevice(0, 0, false);
+      vesperSystem.setPointerNdc(-10, -10, false);
+    };
+
+    stage.addEventListener("pointermove", handlePointerMove);
+    stage.addEventListener("pointerleave", handlePointerLeave);
+
     const ctx = gsap.context(() => {
       syncStage(0);
 
@@ -110,6 +143,9 @@ export function HeroExperience() {
     }, sectionRef);
 
     return () => {
+      stage.removeEventListener("pointermove", handlePointerMove);
+      stage.removeEventListener("pointerleave", handlePointerLeave);
+      vesperSystem.destroy();
       ctx.revert();
     };
   }, []);
@@ -124,7 +160,15 @@ export function HeroExperience() {
         ref={stageRef}
         className="relative h-[100dvh] w-full overflow-hidden bg-[#ffffff]"
       >
-        <AntParticleScene onSystemReady={handleSystemReady} />
+        {/* Layer 1: Vesper 3D Brain Stage (130k particles with Normal Blending on pure white canvas) */}
+        <div ref={vesperContainerRef} className="absolute inset-0 z-0" />
+
+        {/* Layer 2: Ant Particle Scene (Estado 01 pure white background and orange particles) */}
+        <div ref={antContainerRef} className="absolute inset-0 z-[1] transition-opacity duration-300">
+          <AntParticleScene onSystemReady={handleSystemReady} />
+        </div>
+
+        {/* Layer 3: Split Overlay Copy & Indicator */}
         <BrainSplitOverlay ref={overlayRef} />
         <ScrollIndicator ref={scrollIndicatorRef} />
       </div>
