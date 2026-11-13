@@ -378,7 +378,7 @@ function DesignSystemCard({
 }
 
 export function OperationalPainsSection() {
-  const { header, challengeCard, solutionCard, closing } =
+  const { header, challengeCard, solutionCard } =
     OPERATIONAL_PAINS_CONFIG;
 
   return (
@@ -517,26 +517,6 @@ export function OperationalPainsSection() {
               </div>
             </div>
           </DesignSystemCard>
-        </div>
-
-        {/* 3. Fechamento: Síntese e Conexão de Valor */}
-        <div className="mt-10 sm:mt-14">
-          <div className="flex flex-col items-center justify-between gap-6 rounded-none border border-black/[0.06] bg-[#F5F5F7] p-6 sm:p-8 md:flex-row md:gap-8 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
-            <div className="flex items-center gap-4">
-              <div className="hidden size-2.5 shrink-0 rounded-full bg-[#D95B26] sm:block animate-pulse" />
-              <p className="font-sans text-sm font-medium leading-relaxed text-[#1D1D1F] sm:text-base">
-                {closing.quote}
-              </p>
-            </div>
-            <div className="w-full shrink-0 md:w-auto">
-              <a
-                href={closing.ctaHref}
-                className="group flex h-11 w-full items-center justify-center bg-[#D95B26] px-6 font-sans text-[0.875rem] font-medium tracking-[0.01em] text-white transition-colors duration-300 hover:bg-[#c44e1c] md:w-auto"
-              >
-                {closing.ctaLabel}
-              </a>
-            </div>
-          </div>
         </div>
       </div>
     </section>
