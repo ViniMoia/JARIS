@@ -252,30 +252,30 @@ function renderModuleIcon(name: string) {
   }
 }
 
-// Helper for status badge styling following Design System 15
+// Helper for status badge styling following Design System 15 (straight angles)
 function renderStatusBadge(status: string, type: ModuleStatusType) {
   switch (type) {
     case "core-highlight":
       return (
-        <span className="rounded-full bg-[#D95B26] px-3 py-1 font-sans text-[0.625rem] font-bold tracking-[0.15em] text-white uppercase shadow-sm">
+        <span className="rounded-none bg-[#D95B26] px-3 py-1 font-sans text-[0.625rem] font-bold tracking-[0.15em] text-white uppercase shadow-sm">
           {status}
         </span>
       );
     case "core":
       return (
-        <span className="rounded-full border border-[#D95B26]/30 bg-[#D95B26]/10 px-3 py-1 font-sans text-[0.625rem] font-bold tracking-[0.15em] text-[#D95B26] uppercase">
+        <span className="rounded-none border border-[#D95B26]/30 bg-[#D95B26]/10 px-3 py-1 font-sans text-[0.625rem] font-bold tracking-[0.15em] text-[#D95B26] uppercase">
           {status}
         </span>
       );
     case "construction":
       return (
-        <span className="rounded-full border border-amber-500/25 bg-amber-500/10 px-3 py-1 font-sans text-[0.625rem] font-bold tracking-[0.15em] text-amber-700 uppercase">
+        <span className="rounded-none border border-amber-500/25 bg-amber-500/10 px-3 py-1 font-sans text-[0.625rem] font-bold tracking-[0.15em] text-amber-700 uppercase">
           {status}
         </span>
       );
     case "roadmap":
       return (
-        <span className="rounded-full border border-zinc-400/30 bg-zinc-400/10 px-3 py-1 font-sans text-[0.625rem] font-bold tracking-[0.15em] text-zinc-600 uppercase">
+        <span className="rounded-none border border-zinc-400/30 bg-zinc-400/10 px-3 py-1 font-sans text-[0.625rem] font-bold tracking-[0.15em] text-zinc-600 uppercase">
           {status}
         </span>
       );
@@ -355,7 +355,7 @@ function Module3DCard({
           ? "transform 0.12s ease-out, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
           : "transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
-      className={`group relative flex flex-col justify-between overflow-hidden rounded-[24px] p-7 sm:p-8 cursor-pointer ${
+      className={`group relative flex flex-col justify-between overflow-hidden rounded-none p-7 sm:p-8 cursor-pointer ${
         isHighlight
           ? "border border-[#D95B26]/40 bg-[#FFFFFF] shadow-[0_15px_40px_rgba(217,91,38,0.08)] ring-1 ring-[#D95B26]/20 hover:shadow-[0_30px_70px_rgba(217,91,38,0.18)]"
           : "border border-black/[0.08] bg-[#FFFFFF] shadow-[0_8px_30px_rgba(0,0,0,0.04)] ring-1 ring-black/5 hover:shadow-[0_25px_60px_rgba(0,0,0,0.09)]"
@@ -423,7 +423,7 @@ export function ModularEcosystemSection() {
                   {/* Card Header: Icon on Left, Status Badge on Right */}
                   <div className="flex items-center justify-between">
                     <div
-                      className={`flex size-11 items-center justify-center rounded-2xl transition-all duration-300 sm:size-12 ${
+                      className={`flex size-11 items-center justify-center rounded-none transition-all duration-300 sm:size-12 ${
                         isHighlight
                           ? "bg-[#D95B26]/10 text-[#D95B26] shadow-xs group-hover:scale-105 group-hover:bg-[#D95B26] group-hover:text-white"
                           : "bg-black/[0.04] text-zinc-700 group-hover:scale-105 group-hover:bg-[#1D1D1F] group-hover:text-white"
@@ -451,7 +451,7 @@ export function ModularEcosystemSection() {
                         key={feature}
                         className="flex items-start gap-3 text-[0.875rem] leading-snug text-zinc-600 transition-colors duration-200 group-hover:text-zinc-800"
                       >
-                        <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-full bg-[#D95B26]/10 text-[#D95B26]">
+                        <span className="mt-0.5 flex size-4 shrink-0 items-center justify-center rounded-none bg-[#D95B26]/10 text-[#D95B26]">
                           <CheckmarkIcon className="size-3" />
                         </span>
                         <span>{feature}</span>

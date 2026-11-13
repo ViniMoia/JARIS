@@ -12,19 +12,19 @@ import {
 
 function RecruitmentUiSimulation() {
   return (
-    <div className="w-full rounded-2xl border border-black/8 bg-[#FAF9F6] p-4 text-left select-none">
+    <div className="w-full rounded-none border border-black/8 bg-[#FAF9F6] p-4 text-left select-none">
       <div className="flex items-center justify-between border-b border-black/5 pb-2.5 mb-2.5">
         <span className="font-sans text-[0.65rem] font-bold tracking-wider text-zinc-500 uppercase">
           AI MATCHING ENGINE
         </span>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-2 py-0.5 font-sans text-[0.62rem] font-semibold text-emerald-600">
+        <span className="inline-flex items-center gap-1.5 rounded-none bg-emerald-500/10 px-2 py-0.5 font-sans text-[0.62rem] font-semibold text-emerald-600">
           <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
           Triagem Concluída
         </span>
       </div>
 
       <div className="space-y-2">
-        <div className="flex items-center justify-between rounded-xl bg-white p-2.5 border border-black/5 shadow-sm">
+        <div className="flex items-center justify-between rounded-none bg-white p-2.5 border border-black/5 shadow-sm">
           <div>
             <p className="font-sans text-xs sm:text-sm font-bold text-[#1D1D1F]">
               Candidato A • Engenheiro de Dados
@@ -33,12 +33,12 @@ function RecruitmentUiSimulation() {
               Score: 98.4% aderência • ASO Agendado
             </p>
           </div>
-          <span className="rounded-lg bg-[#D95B26]/10 px-2 py-1 font-sans text-[0.68rem] font-bold text-[#D95B26]">
+          <span className="rounded-none bg-[#D95B26]/10 px-2 py-1 font-sans text-[0.68rem] font-bold text-[#D95B26]">
             98.4%
           </span>
         </div>
 
-        <div className="flex items-center justify-between rounded-xl bg-white p-2.5 border border-black/5 shadow-sm">
+        <div className="flex items-center justify-between rounded-none bg-white p-2.5 border border-black/5 shadow-sm">
           <div>
             <p className="font-sans text-xs sm:text-sm font-bold text-[#1D1D1F]">
               Candidata B • Product Manager
@@ -47,7 +47,7 @@ function RecruitmentUiSimulation() {
               Score: 94.2% aderência • Onboarding pronto
             </p>
           </div>
-          <span className="rounded-lg bg-[#D95B26]/10 px-2 py-1 font-sans text-[0.68rem] font-bold text-[#D95B26]">
+          <span className="rounded-none bg-[#D95B26]/10 px-2 py-1 font-sans text-[0.68rem] font-bold text-[#D95B26]">
             94.2%
           </span>
         </div>
@@ -58,19 +58,19 @@ function RecruitmentUiSimulation() {
 
 function PayrollUiSimulation() {
   return (
-    <div className="w-full rounded-2xl border border-black/8 bg-[#FAF9F6] p-4 text-left select-none">
+    <div className="w-full rounded-none border border-black/8 bg-[#FAF9F6] p-4 text-left select-none">
       <div className="flex items-center justify-between border-b border-black/5 pb-2.5 mb-2.5">
         <span className="font-sans text-[0.65rem] font-bold tracking-wider text-zinc-500 uppercase">
           AUDITORIA eSOCIAL & PONTO
         </span>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-500/10 px-2 py-0.5 font-sans text-[0.62rem] font-semibold text-blue-600">
+        <span className="inline-flex items-center gap-1.5 rounded-none bg-blue-500/10 px-2 py-0.5 font-sans text-[0.62rem] font-semibold text-blue-600">
           <span className="size-1.5 rounded-full bg-blue-500 animate-pulse" />
           Conformidade 100%
         </span>
       </div>
 
       <div className="space-y-2">
-        <div className="rounded-xl bg-white p-2.5 border border-black/5 shadow-sm">
+        <div className="rounded-none bg-white p-2.5 border border-black/5 shadow-sm">
           <div className="flex items-center justify-between mb-1">
             <span className="font-sans text-xs sm:text-sm font-bold text-[#1D1D1F]">
               Ponto com Reconhecimento Facial
@@ -79,12 +79,12 @@ function PayrollUiSimulation() {
               Prova de Vida OK
             </span>
           </div>
-          <div className="h-1.5 w-full rounded-full bg-zinc-100 overflow-hidden">
-            <div className="h-full w-full rounded-full bg-emerald-500" />
+          <div className="h-1.5 w-full rounded-none bg-zinc-100 overflow-hidden">
+            <div className="h-full w-full rounded-none bg-emerald-500" />
           </div>
         </div>
 
-        <div className="flex items-center justify-between rounded-xl bg-white p-2.5 border border-black/5 shadow-sm">
+        <div className="flex items-center justify-between rounded-none bg-white p-2.5 border border-black/5 shadow-sm">
           <div>
             <p className="font-sans text-xs sm:text-sm font-bold text-[#1D1D1F]">
               Cálculo de Proventos & Encargos
@@ -93,7 +93,7 @@ function PayrollUiSimulation() {
               Totalmente automatizado sem intervenção manual
             </p>
           </div>
-          <span className="rounded-lg bg-zinc-100 px-2 py-1 font-sans text-[0.68rem] font-bold text-[#1D1D1F]">
+          <span className="rounded-none bg-zinc-100 px-2 py-1 font-sans text-[0.68rem] font-bold text-[#1D1D1F]">
             0 ERROS
           </span>
         </div>
@@ -104,19 +104,19 @@ function PayrollUiSimulation() {
 
 function FinanceUiSimulation() {
   return (
-    <div className="w-full rounded-2xl border border-black/8 bg-[#FAF9F6] p-4 text-left select-none">
+    <div className="w-full rounded-none border border-black/8 bg-[#FAF9F6] p-4 text-left select-none">
       <div className="flex items-center justify-between border-b border-black/5 pb-2.5 mb-2.5">
         <span className="font-sans text-[0.65rem] font-bold tracking-wider text-zinc-500 uppercase">
           PROJEÇÃO FINANCEIRA COM IA
         </span>
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-500/10 px-2 py-0.5 font-sans text-[0.62rem] font-semibold text-amber-700">
+        <span className="inline-flex items-center gap-1.5 rounded-none bg-amber-500/10 px-2 py-0.5 font-sans text-[0.62rem] font-semibold text-amber-700">
           <span className="size-1.5 rounded-full bg-[#D95B26] animate-pulse" />
           Tempo Real
         </span>
       </div>
 
       <div className="space-y-2">
-        <div className="rounded-xl bg-white p-2.5 border border-black/5 shadow-sm">
+        <div className="rounded-none bg-white p-2.5 border border-black/5 shadow-sm">
           <div className="flex items-center justify-between mb-1.5">
             <span className="font-sans text-xs sm:text-sm font-bold text-[#1D1D1F]">
               Fluxo de Caixa Preditivo (90d)
@@ -142,7 +142,7 @@ function FinanceUiSimulation() {
           </div>
         </div>
 
-        <div className="flex items-center justify-between rounded-xl bg-white p-2.5 border border-black/5 shadow-sm">
+        <div className="flex items-center justify-between rounded-none bg-white p-2.5 border border-black/5 shadow-sm">
           <div>
             <p className="font-sans text-xs sm:text-sm font-bold text-[#1D1D1F]">
               Assistente de Desvios
@@ -151,7 +151,7 @@ function FinanceUiSimulation() {
               Alertas proativos emitidos automaticamente
             </p>
           </div>
-          <span className="rounded-lg bg-emerald-50 px-2 py-1 font-sans text-[0.68rem] font-bold text-emerald-700">
+          <span className="rounded-none bg-emerald-50 px-2 py-1 font-sans text-[0.68rem] font-bold text-emerald-700">
             AUDITADO
           </span>
         </div>
@@ -203,7 +203,7 @@ function StackedCard({ card, index, activeIndex, onClick }: StackedCardProps) {
         zIndex: zIndexStyle,
         perspective: "1000px",
       }}
-      className={`absolute inset-0 rounded-[2rem] border border-white/20 bg-white p-6 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.35)] transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer flex flex-col justify-between select-none ${
+      className={`absolute inset-0 rounded-none border border-white/20 bg-white p-6 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.35)] transition-all duration-600 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer flex flex-col justify-between select-none ${
         isCurrent ? "pointer-events-auto" : "pointer-events-none"
       }`}
     >
@@ -391,7 +391,7 @@ export function AiHighlightsSection() {
                 </div>
 
                 {/* Bloco de Benefício de Alto Impacto com acabamento translúcido */}
-                <div className="rounded-2xl border border-[#D95B26]/30 bg-[#D95B26]/15 p-4 sm:p-5 backdrop-blur-md shadow-[0_4px_24px_rgba(217,91,38,0.1)]">
+                <div className="rounded-none border border-[#D95B26]/30 bg-[#D95B26]/15 p-4 sm:p-5 backdrop-blur-md shadow-[0_4px_24px_rgba(217,91,38,0.1)]">
                   <span className="mb-1 block font-sans text-[0.68rem] font-bold tracking-[0.16em] text-[#D95B26] uppercase">
                     BENEFÍCIO COMPROVADO
                   </span>
@@ -403,17 +403,17 @@ export function AiHighlightsSection() {
 
               {/* Controles de Navegação (Scroll ou Clique) */}
               <div className="flex items-center justify-between pt-6 mt-4 border-t border-white/10">
-                {/* Pagination Dots / Pills */}
+                {/* Pagination Dots / Rectangular Indicators */}
                 <div className="flex items-center gap-2">
                   {cards.map((c, i) => (
                     <button
                       key={c.id}
                       onClick={() => setActiveIndex(i)}
                       aria-label={`Ir para ${c.title}`}
-                      className={`h-2.5 rounded-full transition-all duration-400 ${
+                      className={`h-1.5 rounded-none transition-all duration-400 cursor-pointer ${
                         i === activeIndex
                           ? "w-8 bg-[#D95B26]"
-                          : "w-2.5 bg-white/20 hover:bg-white/40"
+                          : "w-3 bg-white/20 hover:bg-white/40"
                       }`}
                     />
                   ))}
@@ -424,7 +424,7 @@ export function AiHighlightsSection() {
                   <button
                     onClick={handlePrev}
                     aria-label="Destaque anterior"
-                    className="flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition-all hover:border-white/30 hover:bg-white/15 focus:outline-none"
+                    className="flex size-9 items-center justify-center rounded-none border border-white/15 bg-white/5 text-white transition-all hover:border-white/30 hover:bg-white/15 focus:outline-none cursor-pointer"
                   >
                     <svg
                       viewBox="0 0 24 24"
@@ -439,7 +439,7 @@ export function AiHighlightsSection() {
                   <button
                     onClick={handleNext}
                     aria-label="Próximo destaque"
-                    className="flex size-9 items-center justify-center rounded-full border border-white/15 bg-white/5 text-white transition-all hover:border-white/30 hover:bg-white/15 focus:outline-none"
+                    className="flex size-9 items-center justify-center rounded-none border border-white/15 bg-white/5 text-white transition-all hover:border-white/30 hover:bg-white/15 focus:outline-none cursor-pointer"
                   >
                     <svg
                       viewBox="0 0 24 24"

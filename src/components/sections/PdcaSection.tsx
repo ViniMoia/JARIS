@@ -16,7 +16,7 @@ const PdcaParticleDiagram = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="relative aspect-square w-full max-w-[500px] rounded-3xl bg-[#FAF9F6]/20 flex items-center justify-center">
+      <div className="relative aspect-square w-full max-w-[500px] rounded-none bg-[#FAF9F6]/20 flex items-center justify-center">
         <div className="size-8 rounded-full border-2 border-[#D95B26] border-t-transparent animate-spin" />
       </div>
     ),
@@ -36,7 +36,7 @@ function PdcaCard({ step, index, isActive, onHover }: PdcaCardProps) {
       aria-label={`Etapa ${step.letter}: ${step.title}`}
       onPointerEnter={() => onHover(step.id)}
       onPointerLeave={() => onHover(null)}
-      className={`group relative overflow-hidden rounded-2xl sm:rounded-3xl border bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer ${
+      className={`group relative overflow-hidden rounded-none border bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] cursor-pointer ${
         isActive
           ? "border-black/20 bg-[#FAF9F6] shadow-[0_14px_36px_rgba(0,0,0,0.06)] pl-7 sm:pl-8"
           : "border-black/8 hover:border-black/15 hover:bg-[#FAF9F6]/60 hover:shadow-[0_14px_36px_rgba(0,0,0,0.05)] hover:pl-7 sm:hover:pl-8"
@@ -54,10 +54,10 @@ function PdcaCard({ step, index, isActive, onHover }: PdcaCardProps) {
       />
 
       <div className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-5">
-        {/* Nó Circular / Letra da Etapa */}
+        {/* Nó Quadrado / Letra da Etapa (cantos retos) */}
         <div className="flex-shrink-0">
           <div
-            className={`relative flex size-12 sm:size-13 items-center justify-center rounded-full border-2 bg-white shadow-sm transition-all duration-300 ease-out ${
+            className={`relative flex size-12 sm:size-13 items-center justify-center rounded-none border-2 bg-white shadow-sm transition-all duration-300 ease-out ${
               isActive
                 ? "border-[#D95B26] scale-105 shadow-[0_0_16px_rgba(217,91,38,0.3)]"
                 : "border-[#D95B26]/30 group-hover:border-[#D95B26] group-hover:scale-105 group-hover:shadow-[0_0_16px_rgba(217,91,38,0.25)]"
@@ -68,7 +68,7 @@ function PdcaCard({ step, index, isActive, onHover }: PdcaCardProps) {
             </span>
             <span
               aria-hidden="true"
-              className={`pointer-events-none absolute inset-0 rounded-full border border-[#D95B26]/20 transition-opacity duration-300 ${
+              className={`pointer-events-none absolute inset-0 rounded-none border border-[#D95B26]/20 transition-opacity duration-300 ${
                 isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
               }`}
             />

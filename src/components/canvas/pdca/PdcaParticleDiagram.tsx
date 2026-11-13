@@ -128,8 +128,8 @@ export const PdcaParticleDiagram = forwardRef<
           {/* Ambient Warm Radial Glow behind the central hub */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-44 sm:size-52 rounded-full bg-[#D95B26]/8 blur-3xl pointer-events-none" />
 
-          {/* Central Hub Disc */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-28 sm:size-32 rounded-full border border-black/8 bg-white/95 shadow-[0_8px_24px_rgba(217,91,38,0.08)] backdrop-blur-sm flex flex-col items-center justify-center text-center">
+          {/* Central Hub Disc (cantos retos) */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-28 sm:size-32 rounded-none border border-black/8 bg-white/95 shadow-[0_8px_24px_rgba(217,91,38,0.08)] backdrop-blur-sm flex flex-col items-center justify-center text-center">
             <span className="font-sans text-[0.62rem] sm:text-[0.68rem] font-bold tracking-[0.18em] text-[#1D1D1F] uppercase">
               CICLO
             </span>
@@ -143,7 +143,7 @@ export const PdcaParticleDiagram = forwardRef<
 
           {/* Node P (Top: 90 deg) */}
           <div
-            className={`pointer-events-auto absolute top-[8%] left-1/2 -translate-x-1/2 size-12 sm:size-14 rounded-full border-2 bg-white/90 shadow-sm flex items-center justify-center transition-all duration-300 ${
+            className={`pointer-events-auto absolute top-[8%] left-1/2 -translate-x-1/2 size-12 sm:size-14 rounded-none border-2 bg-white/90 shadow-sm flex items-center justify-center transition-all duration-300 ${
               activeStep === "P"
                 ? "border-[#D95B26] scale-110 shadow-[0_0_18px_rgba(217,91,38,0.35)]"
                 : "border-[#D95B26]/30 hover:border-[#D95B26] hover:scale-105"
@@ -157,7 +157,7 @@ export const PdcaParticleDiagram = forwardRef<
 
           {/* Node D (Right: 0 deg) */}
           <div
-            className={`pointer-events-auto absolute top-1/2 right-[8%] -translate-y-1/2 size-12 sm:size-14 rounded-full border-2 bg-white/90 shadow-sm flex items-center justify-center transition-all duration-300 ${
+            className={`pointer-events-auto absolute top-1/2 right-[8%] -translate-y-1/2 size-12 sm:size-14 rounded-none border-2 bg-white/90 shadow-sm flex items-center justify-center transition-all duration-300 ${
               activeStep === "D"
                 ? "border-[#D95B26] scale-110 shadow-[0_0_18px_rgba(217,91,38,0.35)]"
                 : "border-[#D95B26]/30 hover:border-[#D95B26] hover:scale-105"
@@ -171,7 +171,7 @@ export const PdcaParticleDiagram = forwardRef<
 
           {/* Node C (Bottom: 270 deg) */}
           <div
-            className={`pointer-events-auto absolute bottom-[8%] left-1/2 -translate-x-1/2 size-12 sm:size-14 rounded-full border-2 bg-white/90 shadow-sm flex items-center justify-center transition-all duration-300 ${
+            className={`pointer-events-auto absolute bottom-[8%] left-1/2 -translate-x-1/2 size-12 sm:size-14 rounded-none border-2 bg-white/90 shadow-sm flex items-center justify-center transition-all duration-300 ${
               activeStep === "C"
                 ? "border-[#D95B26] scale-110 shadow-[0_0_18px_rgba(217,91,38,0.35)]"
                 : "border-[#D95B26]/30 hover:border-[#D95B26] hover:scale-105"
@@ -185,7 +185,7 @@ export const PdcaParticleDiagram = forwardRef<
 
           {/* Node A (Left: 180 deg) */}
           <div
-            className={`pointer-events-auto absolute top-1/2 left-[8%] -translate-y-1/2 size-12 sm:size-14 rounded-full border-2 bg-white/90 shadow-sm flex items-center justify-center transition-all duration-300 ${
+            className={`pointer-events-auto absolute top-1/2 left-[8%] -translate-y-1/2 size-12 sm:size-14 rounded-none border-2 bg-white/90 shadow-sm flex items-center justify-center transition-all duration-300 ${
               activeStep === "A"
                 ? "border-[#D95B26] scale-110 shadow-[0_0_18px_rgba(217,91,38,0.35)]"
                 : "border-[#D95B26]/30 hover:border-[#D95B26] hover:scale-105"

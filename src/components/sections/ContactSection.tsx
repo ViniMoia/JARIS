@@ -161,9 +161,9 @@ export function ContactSection() {
               {benefits.map((benefit) => (
                 <div
                   key={benefit.id}
-                  className="group flex items-center gap-3.5 rounded-2xl border border-white/10 bg-white/[0.04] p-3.5 sm:p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#D95B26]/40 hover:bg-white/[0.08]"
+                  className="group flex items-center gap-3.5 rounded-none border border-white/10 bg-white/[0.04] p-3.5 sm:p-4 backdrop-blur-sm transition-all duration-300 hover:border-[#D95B26]/40 hover:bg-white/[0.08]"
                 >
-                  <div className="flex size-7 flex-shrink-0 items-center justify-center rounded-full bg-[#D95B26]/15 border border-[#D95B26]/30 group-hover:scale-110 transition-transform duration-300">
+                  <div className="flex size-7 flex-shrink-0 items-center justify-center rounded-none bg-[#D95B26]/15 border border-[#D95B26]/30 group-hover:scale-105 transition-transform duration-300">
                     <CheckmarkIcon />
                   </div>
                   <span className="font-sans text-sm sm:text-[0.95rem] font-medium text-white/90">
@@ -174,9 +174,9 @@ export function ContactSection() {
             </div>
 
             {/* Card de Garantia / SLA de Atendimento */}
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-r from-white/10 to-white/5 p-5 backdrop-blur-md shadow-lg">
+            <div className="rounded-none border border-white/10 bg-gradient-to-r from-white/10 to-white/5 p-5 backdrop-blur-md shadow-lg">
               <div className="flex items-start gap-4">
-                <div className="flex size-11 flex-shrink-0 items-center justify-center rounded-xl bg-[#D95B26]/20 border border-[#D95B26]/30">
+                <div className="flex size-11 flex-shrink-0 items-center justify-center rounded-none bg-[#D95B26]/20 border border-[#D95B26]/30">
                   <ClockIcon />
                 </div>
                 <div>
@@ -195,10 +195,10 @@ export function ContactSection() {
               LADO DIREITO: Formulário Completo (Card Branco Apple)
               ========================================================= */}
           <div className="lg:col-span-7">
-            <div className="relative rounded-[2.5rem] border border-white/20 bg-white p-6 sm:p-9 text-[#1D1D1F] shadow-[0_25px_80px_rgba(0,0,0,0.45)]">
+            <div className="relative rounded-none border border-white/20 bg-white p-6 sm:p-9 text-[#1D1D1F] shadow-[0_25px_80px_rgba(0,0,0,0.45)]">
               {isSuccess ? (
                 <div className="py-16 text-center">
-                  <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
+                  <div className="mx-auto mb-4 flex size-16 items-center justify-center rounded-none bg-emerald-500/10 text-emerald-600 border border-emerald-500/20">
                     <CheckmarkIcon />
                   </div>
                   <h3 className="font-sans text-2xl font-extrabold text-[#1D1D1F] mb-2">
@@ -243,7 +243,7 @@ export function ContactSection() {
                           setFormData({ ...formData, name: e.target.value })
                         }
                         placeholder="Seu nome"
-                        className="w-full rounded-xl border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D95B26]/20 transition-all duration-200"
+                        className="w-full rounded-none border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#D95B26] transition-all duration-200"
                       />
                     </div>
 
@@ -259,7 +259,7 @@ export function ContactSection() {
                           setFormData({ ...formData, email: e.target.value })
                         }
                         placeholder="voce@empresa.com.br"
-                        className="w-full rounded-xl border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D95B26]/20 transition-all duration-200"
+                        className="w-full rounded-none border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#D95B26] transition-all duration-200"
                       />
                     </div>
                   </div>
@@ -276,7 +276,7 @@ export function ContactSection() {
                         value={formData.phone}
                         onChange={handlePhoneChange}
                         placeholder="(00) 00000-0000"
-                        className="w-full rounded-xl border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D95B26]/20 transition-all duration-200"
+                        className="w-full rounded-none border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#D95B26] transition-all duration-200"
                       />
                     </div>
 
@@ -292,7 +292,7 @@ export function ContactSection() {
                           setFormData({ ...formData, company: e.target.value })
                         }
                         placeholder="Nome da sua empresa"
-                        className="w-full rounded-xl border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D95B26]/20 transition-all duration-200"
+                        className="w-full rounded-none border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#D95B26] transition-all duration-200"
                       />
                     </div>
                   </div>
@@ -309,7 +309,7 @@ export function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, role: e.target.value })
                         }
-                        className="w-full rounded-xl border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D95B26]/20 transition-all duration-200 cursor-pointer"
+                        className="w-full rounded-none border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#D95B26] transition-all duration-200 cursor-pointer"
                       >
                         {form.roles.map((r, i) => (
                           <option key={i} value={i === 0 ? "" : r} disabled={i === 0}>
@@ -329,7 +329,7 @@ export function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, headcount: e.target.value })
                         }
-                        className="w-full rounded-xl border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D95B26]/20 transition-all duration-200 cursor-pointer"
+                        className="w-full rounded-none border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 sm:py-3 font-sans text-sm text-[#1D1D1F] focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#D95B26] transition-all duration-200 cursor-pointer"
                       >
                         {form.headcounts.map((h, i) => (
                           <option key={i} value={i === 0 ? "" : h} disabled={i === 0}>
@@ -353,10 +353,10 @@ export function ContactSection() {
                             type="button"
                             key={modName}
                             onClick={() => toggleModule(modName)}
-                            className={`rounded-full px-3.5 py-1.5 sm:px-4 sm:py-2 font-sans text-xs sm:text-[0.82rem] font-semibold transition-all duration-200 cursor-pointer ${
+                            className={`rounded-none px-3.5 py-1.5 sm:px-4 sm:py-2 font-sans text-xs sm:text-[0.82rem] font-medium transition-all duration-200 cursor-pointer ${
                               isSelected
-                                ? "bg-[#D95B26] text-white border border-[#D95B26] shadow-sm scale-102"
-                                : "bg-[#FAF9F6] text-[#1D1D1F] border border-black/8 hover:border-black/20 hover:bg-zinc-100"
+                                ? "bg-[#D95B26] text-white border border-[#D95B26]"
+                                : "bg-[#FAF9F6] text-[#1D1D1F] border border-black/10 hover:border-black/25 hover:bg-zinc-100"
                             }`}
                           >
                             {modName}
@@ -378,7 +378,7 @@ export function ContactSection() {
                         setFormData({ ...formData, message: e.target.value })
                       }
                       placeholder="Conte um pouco sobre as principais dores ou objetivos da sua empresa..."
-                      className="w-full rounded-xl border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#D95B26]/20 transition-all duration-200 resize-none"
+                      className="w-full rounded-none border border-black/10 bg-[#FAF9F6] px-3.5 py-2.5 font-sans text-sm text-[#1D1D1F] placeholder:text-zinc-400 focus:border-[#D95B26] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#D95B26] transition-all duration-200 resize-none"
                     />
                   </div>
 
@@ -391,7 +391,7 @@ export function ContactSection() {
                         onChange={(e) =>
                           setFormData({ ...formData, agreed: e.target.checked })
                         }
-                        className="mt-0.5 size-4 rounded border-black/20 text-[#D95B26] focus:ring-[#D95B26] cursor-pointer"
+                        className="mt-0.5 size-4 rounded-none border border-black/20 text-[#D95B26] focus:ring-[#D95B26] cursor-pointer"
                       />
                       <span className="font-sans text-xs sm:text-[0.82rem] text-zinc-600 leading-snug">
                         {form.privacyText}
@@ -399,12 +399,12 @@ export function ContactSection() {
                     </label>
                   </div>
 
-                  {/* Linha 7: Botão de Envio (CTA Principal com estilo btn-shimmer) */}
+                  {/* Linha 7: Botão de Envio (Alinhado ao padrão da Hero / Vesper: cantos retos, bg-[#D95B26] sólido) */}
                   <div className="pt-2">
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="btn-shimmer group w-full rounded-2xl bg-[#D95B26] py-3.5 sm:py-4 px-6 text-sm sm:text-base font-extrabold uppercase tracking-wider text-white shadow-[0_12px_28px_rgba(217,91,38,0.3)] hover:shadow-[0_16px_36px_rgba(217,91,38,0.4)] hover:-translate-y-0.5 active:translate-y-0 transition-all duration-300 flex items-center justify-center gap-2.5 cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed"
+                      className="group flex h-[3.25rem] sm:h-[3.6rem] w-full items-center justify-center gap-3 bg-[#D95B26] px-6 font-sans text-[0.875rem] sm:text-[0.9375rem] font-medium tracking-[0.02em] text-white transition-colors duration-300 hover:bg-[#c44e1c] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D95B26] cursor-pointer disabled:opacity-70 disabled:cursor-not-allowed uppercase"
                     >
                       <span className="transition-transform duration-300 group-hover:translate-x-1">
                         <PaperPlaneIcon />

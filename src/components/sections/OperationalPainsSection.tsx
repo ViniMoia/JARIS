@@ -360,7 +360,7 @@ function DesignSystemCard({
           ? "transform 0.12s ease-out, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
           : "transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
-      className={`group relative cursor-pointer overflow-hidden rounded-[24px] p-7 sm:p-10 ${className}`}
+      className={`group relative cursor-pointer overflow-hidden rounded-none p-7 sm:p-10 ${className}`}
     >
       {/* Dynamic Flashlight Spotlight Zone from Design System 15 */}
       <div
@@ -439,9 +439,9 @@ export function OperationalPainsSection() {
                 {challengeCard.topics.map((item) => (
                   <div
                     key={item.id}
-                    className="group/item flex items-start gap-4 rounded-2xl border border-black/[0.04] bg-white/70 p-4.5 backdrop-blur-sm transition-all duration-300 hover:translate-x-2 hover:border-black/[0.1] hover:bg-white hover:shadow-[0_8px_25px_rgba(0,0,0,0.04)] sm:p-5"
+                    className="group/item flex items-start gap-4 rounded-none border border-black/[0.04] bg-white/70 p-4.5 backdrop-blur-sm transition-all duration-300 hover:translate-x-2 hover:border-black/[0.1] hover:bg-white hover:shadow-[0_8px_25px_rgba(0,0,0,0.04)] sm:p-5"
                   >
-                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-black/[0.04] text-zinc-700 transition-colors duration-300 group-hover/item:bg-[#1D1D1F] group-hover/item:text-white sm:size-12">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-none bg-black/[0.04] text-zinc-700 transition-colors duration-300 group-hover/item:bg-[#1D1D1F] group-hover/item:text-white sm:size-12">
                       {renderPainIcon(item.iconName)}
                     </div>
                     <div>
@@ -497,9 +497,9 @@ export function OperationalPainsSection() {
                 {solutionCard.topics.map((item) => (
                   <div
                     key={item.id}
-                    className="group/item flex items-start gap-4 rounded-2xl border border-[#D95B26]/15 bg-[#FDFEFE] p-4.5 transition-all duration-300 hover:translate-x-2 hover:border-[#D95B26]/40 hover:bg-white hover:shadow-[0_12px_30px_rgba(217,91,38,0.1)] sm:p-5"
+                    className="group/item flex items-start gap-4 rounded-none border border-[#D95B26]/15 bg-[#FDFEFE] p-4.5 transition-all duration-300 hover:translate-x-2 hover:border-[#D95B26]/40 hover:bg-white hover:shadow-[0_12px_30px_rgba(217,91,38,0.1)] sm:p-5"
                   >
-                    <div className="flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#D95B26]/10 text-[#D95B26] shadow-xs transition-all duration-300 group-hover/item:scale-105 group-hover/item:bg-[#D95B26] group-hover/item:text-white sm:size-12">
+                    <div className="flex size-11 shrink-0 items-center justify-center rounded-none bg-[#D95B26]/10 text-[#D95B26] shadow-xs transition-all duration-300 group-hover/item:scale-105 group-hover/item:bg-[#D95B26] group-hover/item:text-white sm:size-12">
                       {renderPainIcon(item.iconName)}
                     </div>
                     <div>
@@ -519,7 +519,7 @@ export function OperationalPainsSection() {
 
         {/* 3. Fechamento: Síntese e Conexão de Valor */}
         <div className="mt-10 sm:mt-14">
-          <div className="flex flex-col items-center justify-between gap-6 rounded-[2rem] border border-black/[0.06] bg-[#F5F5F7] p-6 sm:p-8 md:flex-row md:gap-8 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
+          <div className="flex flex-col items-center justify-between gap-6 rounded-none border border-black/[0.06] bg-[#F5F5F7] p-6 sm:p-8 md:flex-row md:gap-8 shadow-[0_4px_20px_rgba(0,0,0,0.02)]">
             <div className="flex items-center gap-4">
               <div className="hidden size-2.5 shrink-0 rounded-full bg-[#D95B26] sm:block animate-pulse" />
               <p className="font-sans text-sm font-medium leading-relaxed text-[#1D1D1F] sm:text-base">

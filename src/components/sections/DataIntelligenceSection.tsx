@@ -176,7 +176,7 @@ export function DataIntelligenceSection() {
               {features.map((feature) => (
                 <article
                   key={feature.id}
-                  className="group relative overflow-hidden rounded-2xl border border-black/8 bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-black/15 hover:bg-[#FAF9F6]/80 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] hover:pl-7 sm:hover:pl-8 cursor-pointer"
+                  className="group relative overflow-hidden rounded-none border border-black/8 bg-white p-5 sm:p-6 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:border-black/15 hover:bg-[#FAF9F6]/80 hover:shadow-[0_12px_32px_rgba(0,0,0,0.06)] hover:pl-7 sm:hover:pl-8 cursor-pointer"
                 >
                   {/* Microinteração da barra lateral esquerda laranja (design_sistem15.html) */}
                   <div
@@ -187,7 +187,7 @@ export function DataIntelligenceSection() {
                   <div className="flex items-start gap-4 sm:gap-5">
                     {/* Ícone Temático */}
                     <div className="flex-shrink-0">
-                      <div className="flex size-12 sm:size-13 items-center justify-center rounded-2xl border border-[#D95B26]/20 bg-[#D95B26]/10 text-[#D95B26] transition-all duration-500 ease-out group-hover:scale-110 group-hover:rotate-[6deg] group-hover:bg-[#D95B26] group-hover:text-white group-hover:border-[#D95B26] shadow-sm">
+                      <div className="flex size-12 sm:size-13 items-center justify-center rounded-none border border-[#D95B26]/20 bg-[#D95B26]/10 text-[#D95B26] transition-all duration-500 ease-out group-hover:scale-105 group-hover:bg-[#D95B26] group-hover:text-white group-hover:border-[#D95B26] shadow-sm">
                         {feature.iconName === "reports" && <DocumentReportsIcon />}
                         {feature.iconName === "predictive" && <PredictiveAnalyticsIcon />}
                         {feature.iconName === "insights" && <StrategicInsightsIcon />}
@@ -222,7 +222,7 @@ export function DataIntelligenceSection() {
               {/* Card Container com visual Apple Glass / Soft Surface */}
               <div
                 ref={chartRef}
-                className="relative overflow-hidden rounded-[2.5rem] border border-black/8 bg-white p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.05)] hover:shadow-[0_35px_80px_rgba(0,0,0,0.08)] transition-all duration-700 select-none"
+                className="relative overflow-hidden rounded-none border border-black/8 bg-white p-6 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.05)] hover:shadow-[0_35px_80px_rgba(0,0,0,0.08)] transition-all duration-700 select-none"
               >
                 {/* Realce radial de fundo decorativo */}
                 <div
@@ -234,7 +234,7 @@ export function DataIntelligenceSection() {
                 <div className="relative z-10 flex items-center justify-between border-b border-black/5 pb-5 mb-5">
                   <div className="flex items-center gap-3.5">
                     {/* Ícone em caixa com tom pêssego/âmbar sutil */}
-                    <div className="flex size-11 items-center justify-center rounded-2xl bg-[#D95B26]/10 border border-[#D95B26]/15 shadow-sm">
+                    <div className="flex size-11 items-center justify-center rounded-none bg-[#D95B26]/10 border border-[#D95B26]/15 shadow-sm">
                       <ChartHeaderIcon />
                     </div>
 
@@ -249,7 +249,7 @@ export function DataIntelligenceSection() {
                   </div>
 
                   {/* Badge de Destaque Verde Menta (+24%) */}
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/10 px-3.5 py-1.5 font-sans text-xs sm:text-sm font-bold text-emerald-600 border border-emerald-500/20 shadow-sm">
+                  <span className="inline-flex items-center gap-1.5 rounded-none bg-emerald-500/10 px-3.5 py-1.5 font-sans text-xs sm:text-sm font-bold text-emerald-600 border border-emerald-500/20 shadow-sm">
                     <span className="size-1.5 rounded-full bg-emerald-500 animate-pulse" />
                     {currentMode.badgePercent}
                   </span>
@@ -261,7 +261,7 @@ export function DataIntelligenceSection() {
                     <button
                       key={mode.id}
                       onClick={() => setActiveModeIndex(idx)}
-                      className={`rounded-full px-3.5 py-1.5 font-sans text-[0.68rem] font-bold uppercase tracking-wider transition-all duration-300 ${
+                      className={`rounded-none px-3.5 py-1.5 font-sans text-[0.68rem] font-bold uppercase tracking-wider transition-all duration-300 cursor-pointer ${
                         activeModeIndex === idx
                           ? "bg-[#1D1D1F] text-white shadow-sm"
                           : "bg-[#FAF9F6] text-zinc-500 hover:bg-zinc-200/70 hover:text-[#1D1D1F] border border-black/5"
@@ -297,7 +297,7 @@ export function DataIntelligenceSection() {
                         >
                           {/* Tooltip Flutuante Dinâmico no Hover */}
                           <div
-                            className={`pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl bg-[#1D1D1F] px-2.5 py-1.5 text-center text-white shadow-xl transition-all duration-300 z-30 ${
+                            className={`pointer-events-none absolute -top-12 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-none bg-[#1D1D1F] px-2.5 py-1.5 text-center text-white shadow-xl transition-all duration-300 z-30 ${
                               isHovered
                                 ? "opacity-100 translate-y-0 scale-100"
                                 : "opacity-0 translate-y-2 scale-90"
@@ -313,13 +313,13 @@ export function DataIntelligenceSection() {
                             <div className="absolute left-1/2 top-full -translate-x-1/2 border-4 border-transparent border-t-[#1D1D1F]" />
                           </div>
 
-                          {/* A Barra Colorida com cantos superiores arredondados */}
+                          {/* A Barra Colorida com cantos retos (border-radius: 0) */}
                           <div
                             style={{
                               height: `${targetHeight}%`,
                               backgroundColor: item.color,
                             }}
-                            className={`w-full rounded-t-xl sm:rounded-t-2xl transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] relative ${
+                            className={`w-full rounded-none transition-all duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] relative ${
                               isHovered
                                 ? "brightness-105 shadow-[0_0_20px_rgba(217,91,38,0.35)] scale-y-[1.03] origin-bottom"
                                 : "group-hover:brightness-105"
@@ -329,7 +329,7 @@ export function DataIntelligenceSection() {
                             {idx === currentMode.data.length - 1 && (
                               <div
                                 aria-hidden="true"
-                                className="absolute top-0 inset-x-0 h-1.5 rounded-t-xl bg-white/30"
+                                className="absolute top-0 inset-x-0 h-1.5 rounded-none bg-white/30"
                               />
                             )}
                           </div>
@@ -351,7 +351,7 @@ export function DataIntelligenceSection() {
                 </div>
 
                 {/* 4. Rodapé Informativo: Insight em Tempo Real da IA */}
-                <div className="relative z-10 mt-3 pt-4 border-t border-black/5 flex items-center justify-between gap-3 bg-[#FAF9F6] rounded-2xl p-3 border border-black/5">
+                <div className="relative z-10 mt-3 pt-4 border-t border-black/5 flex items-center justify-between gap-3 bg-[#FAF9F6] rounded-none p-3 border border-black/5">
                   <div className="flex items-center gap-2.5 min-w-0">
                     <span className="size-2 flex-shrink-0 rounded-full bg-emerald-500 animate-pulse" />
                     <p className="font-sans text-[0.75rem] sm:text-xs text-zinc-600 truncate">

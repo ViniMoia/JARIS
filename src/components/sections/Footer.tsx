@@ -58,8 +58,8 @@ export function Footer() {
               </p>
             </div>
 
-            {/* Status do Sistema (Pill minimalista do Design System) */}
-            <div className="inline-flex items-center gap-2.5 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 font-sans text-[0.68rem] font-semibold text-blue-200/90 w-fit backdrop-blur-sm">
+            {/* Status do Sistema (Pill minimalista do Design System - cantos retos) */}
+            <div className="inline-flex items-center gap-2.5 rounded-none border border-white/10 bg-white/5 px-3.5 py-1.5 font-sans text-[0.68rem] font-semibold text-blue-200/90 w-fit backdrop-blur-sm">
               <span className="size-2 rounded-full bg-emerald-500 animate-pulse" />
               <span>SISTEMA OPERACIONAL • SLA 99.98%</span>
             </div>
@@ -180,12 +180,12 @@ export function Footer() {
               </li>
             </ul>
 
-            {/* Badges de Certificação / Confiança */}
+            {/* Badges de Certificação / Confiança (cantos retos) */}
             <div className="flex flex-wrap gap-2">
-              <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 font-sans text-[0.6rem] font-bold uppercase tracking-wider text-blue-200/80">
+              <span className="rounded-none border border-white/10 bg-white/5 px-2.5 py-1 font-sans text-[0.6rem] font-bold uppercase tracking-wider text-blue-200/80">
                 SOC-2 TYPE II
               </span>
-              <span className="rounded-full border border-white/10 bg-white/5 px-2.5 py-1 font-sans text-[0.6rem] font-bold uppercase tracking-wider text-blue-200/80">
+              <span className="rounded-none border border-white/10 bg-white/5 px-2.5 py-1 font-sans text-[0.6rem] font-bold uppercase tracking-wider text-blue-200/80">
                 ISO 27001
               </span>
             </div>
