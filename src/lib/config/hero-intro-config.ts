@@ -31,11 +31,11 @@ export const HERO_INTRO_CONFIG: HeroIntroConfig = {
 
   wordmarkText: "JARIS",
 
-  // Elevação aumentada para afastar a formiga do texto e dar respiro elegante
-  antLiftClass: "-translate-y-[8vh] sm:-translate-y-[9.5vh] lg:-translate-y-[10.5vh]",
+  // Elevação harmônica para manter a formiga bem posicionada e com respiro elegante
+  antLiftClass: "-translate-y-[9vh] sm:-translate-y-[10.5vh] lg:-translate-y-[11.5vh]",
 
-  // Posição vertical mais espaçada abaixo da formiga
-  wordmarkPositionClass: "top-[75vh] sm:top-[75.5vh] lg:top-[76vh]",
+  // Posição vertical elevada para afastar o texto do aviso de "Scroll"
+  wordmarkPositionClass: "top-[71vh] sm:top-[71.5vh] lg:top-[72vh]",
 
   // Tipografia do logotipo ampliada para ultrapassar a largura da formiga,
   // com tracking calibrado e centralização matemática absoluta no eixo X (-mr-[0.24em])
