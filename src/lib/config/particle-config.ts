@@ -23,9 +23,9 @@ export const HERO_STAGE_02_COPY = {
   rightTagLines: ["Centralize operações", "Otimize decisões"] as const,
   rightQuoteLines: ["Inteligência coletiva", "em operação"] as const,
   headerNav: [
-    { label: "Plataforma", href: "#ecossistema-modular" },
-    { label: "Soluções", href: "#destaques-ia" },
-    { label: "Sobre", href: "#cenario-atual" },
+    { label: "Gestão", href: "#ecossistema-modular" },
+    { label: "Impacto", href: "#destaques-ia" },
+    { label: "Inteligência", href: "#inteligencia-dados" },
   ] as const,
   headerCtaLabel: "Solicitar Demo",
   headerCtaHref: "#fale-com-time",

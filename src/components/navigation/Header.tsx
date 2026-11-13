@@ -113,7 +113,7 @@ export function Header() {
           </div>
         </a>
 
-        {/* Center: Plataforma, Soluções, Sobre */}
+        {/* Center: Gestão, Impacto, Inteligência */}
         <nav
           aria-label="Navegação Principal"
           className="hidden items-center gap-7 lg:gap-9 font-sans text-[0.875rem] lg:text-[0.9375rem] font-medium tracking-[0.01em] text-[#1D1D1F]/80 md:flex"

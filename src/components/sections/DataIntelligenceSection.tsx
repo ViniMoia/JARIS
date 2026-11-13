@@ -135,8 +135,9 @@ export function DataIntelligenceSection() {
       ref={sectionRef}
       id="inteligencia-dados"
       aria-label="Inteligência de Dados e Performance Operacional"
-      className="relative w-full bg-[#FFFFFF] py-20 sm:py-28 lg:py-32 text-[#1D1D1F] overflow-hidden"
+      className="relative w-full bg-[#FFFFFF] py-20 sm:py-28 lg:py-32 text-[#1D1D1F] overflow-hidden scroll-mt-20"
     >
+      <span id="inteligencia" className="scroll-mt-20 pointer-events-none absolute top-0" />
       {/* Luz ambiente arquitetural minimalista de fundo */}
       <div
         aria-hidden="true"
