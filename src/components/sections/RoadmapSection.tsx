@@ -169,9 +169,12 @@ function RoadmapCard({ item, isActive }: RoadmapCardProps) {
     }));
   }, []);
 
+  // Transição orgânica, suave e fluida para o surgimento do card
   const transformStyle = coords.isHovered
     ? `perspective(1000px) rotateX(${coords.tiltX.toFixed(2)}deg) rotateY(${coords.tiltY.toFixed(2)}deg) translateY(-6px) scale(1.02)`
-    : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)";
+    : isActive
+    ? "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0px) scale(1)"
+    : "perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(28px) scale(0.96)";
 
   return (
     <div
@@ -182,17 +185,23 @@ function RoadmapCard({ item, isActive }: RoadmapCardProps) {
         transform: transformStyle,
         transition: coords.isHovered
           ? "transform 0.12s ease-out, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
-          : "transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
+          : "transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), filter 0.8s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 1s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
-      className={`group relative w-full cursor-pointer overflow-hidden rounded-none p-6 sm:p-8 lg:p-9 transition-all duration-700 ${
+      className={`group relative w-full cursor-pointer overflow-hidden rounded-none p-6 sm:p-8 lg:p-9 will-change-transform ${
         isActive
-          ? "border border-white/15 bg-gradient-to-br from-[#0B1E36] via-[#0D2444] to-[#0A1B30] text-white opacity-100 scale-100 shadow-[0_25px_60px_rgba(11,30,54,0.28)] hover:border-[#D95B26]/50"
-          : "border border-black/5 bg-[#0B1E36]/30 text-slate-300 opacity-35 scale-[0.98] shadow-none filter blur-[0.2px]"
+          ? "border border-white/15 text-white opacity-100 shadow-[0_25px_60px_rgba(11,30,54,0.28)] hover:border-[#D95B26]/50 blur-0 pointer-events-auto"
+          : "border border-transparent text-slate-400 opacity-0 shadow-none blur-[6px] pointer-events-none"
       }`}
     >
+      {/* Background Gradient Azul Noturno Base - Sempre presente para permitir transições perfeitamente contínuas sem flash */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 z-0 bg-gradient-to-br from-[#0B1E36] via-[#0D2444] to-[#0A1B30]"
+      />
+
       {/* Dynamic Flashlight Spotlight Zone com Glow Âmbar JARIS */}
       <div
-        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
+        className="pointer-events-none absolute inset-0 z-[1] transition-opacity duration-300"
         style={{
           opacity: coords.isHovered && isActive ? 1 : 0,
           background: `radial-gradient(600px circle at ${coords.x}px ${coords.y}px, rgba(217, 91, 38, 0.22), transparent 65%)`,
@@ -201,10 +210,10 @@ function RoadmapCard({ item, isActive }: RoadmapCardProps) {
 
       {/* Linha superior de brilho laranja ativa quando a linha de luz passa */}
       <div
-        className={`pointer-events-none absolute inset-x-0 top-0 h-[3px] transition-all duration-700 ${
+        className={`pointer-events-none absolute inset-x-0 top-0 z-[2] h-[3px] transition-all duration-700 ease-out ${
           isActive
-            ? "bg-gradient-to-r from-transparent via-[#D95B26] to-transparent opacity-90"
-            : "bg-transparent opacity-0"
+            ? "bg-gradient-to-r from-transparent via-[#D95B26] to-transparent opacity-90 scale-x-100"
+            : "bg-transparent opacity-0 scale-x-0"
         }`}
       />
 
@@ -386,27 +395,55 @@ export function RoadmapSection() {
                   key={phase.id}
                   className="relative md:grid md:grid-cols-2 md:gap-16 lg:gap-20 md:items-center"
                 >
-                  {/* Conector Horizontal para a Linha Central (Desktop) */}
+                  {/* Conector Horizontal para a Linha Central (Desktop) com expansão fluida */}
                   <div
                     aria-hidden="true"
-                    className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-[2px] w-8 lg:w-10 transition-all duration-500 z-0 ${
-                      isLeft
-                        ? "left-1/2 -translate-x-full"
-                        : "left-1/2"
+                    style={{
+                      transformOrigin: isLeft ? "right center" : "left center",
+                      transition:
+                        "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out, box-shadow 0.7s ease-out",
+                    }}
+                    className={`hidden md:block absolute top-1/2 -translate-y-1/2 h-[2px] w-8 lg:w-10 z-0 ${
+                      isLeft ? "left-1/2 -translate-x-full" : "left-1/2"
                     } ${
                       isActive
-                        ? "bg-[#D95B26] shadow-[0_0_8px_rgba(217,91,38,0.5)]"
-                        : "bg-black/[0.08]"
+                        ? "scale-x-100 opacity-100 bg-[#D95B26] shadow-[0_0_8px_rgba(217,91,38,0.7)]"
+                        : "scale-x-0 opacity-0 bg-[#D95B26]"
                     }`}
                   />
 
-                  {/* Conector Horizontal (Mobile) */}
+                  {/* Marcador Central Junction Node (Desktop) */}
                   <div
                     aria-hidden="true"
-                    className={`md:hidden absolute top-1/2 -translate-y-1/2 -left-7 sm:-left-10 h-[2px] w-7 sm:w-10 transition-all duration-500 ${
+                    className={`hidden md:block absolute left-1/2 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10 size-3 rounded-full border transition-all duration-500 ease-out ${
                       isActive
-                        ? "bg-[#D95B26] shadow-[0_0_8px_rgba(217,91,38,0.5)]"
-                        : "bg-black/[0.08]"
+                        ? "border-white bg-[#D95B26] shadow-[0_0_12px_#D95B26,0_0_24px_rgba(217,91,38,0.7)] scale-125 opacity-100"
+                        : "border-zinc-300 bg-white scale-75 opacity-30"
+                    }`}
+                  />
+
+                  {/* Conector Horizontal (Mobile) com expansão fluida */}
+                  <div
+                    aria-hidden="true"
+                    style={{
+                      transformOrigin: "left center",
+                      transition:
+                        "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out, box-shadow 0.7s ease-out",
+                    }}
+                    className={`md:hidden absolute top-1/2 -translate-y-1/2 -left-7 sm:-left-10 h-[2px] w-7 sm:w-10 z-0 ${
+                      isActive
+                        ? "scale-x-100 opacity-100 bg-[#D95B26] shadow-[0_0_8px_rgba(217,91,38,0.7)]"
+                        : "scale-x-0 opacity-0 bg-[#D95B26]"
+                    }`}
+                  />
+
+                  {/* Marcador Central Junction Node (Mobile) */}
+                  <div
+                    aria-hidden="true"
+                    className={`md:hidden absolute -left-7 sm:-left-10 -translate-x-1/2 top-1/2 -translate-y-1/2 z-10 size-2.5 rounded-full border transition-all duration-500 ease-out ${
+                      isActive
+                        ? "border-white bg-[#D95B26] shadow-[0_0_12px_#D95B26] scale-125 opacity-100"
+                        : "border-zinc-300 bg-white scale-75 opacity-30"
                     }`}
                   />
 
