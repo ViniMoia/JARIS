@@ -64,11 +64,16 @@ npm run dev
 ```
 Acesse [http://localhost:3000](http://localhost:3000) no navegador.
 
-### Build de Produção
+### Build de Produção (Export Estático para Netlify)
 ```bash
 npm run build
-npm run start
 ```
+O build estático gera a pasta `out/`, pronta para deploy.
+
+### Deploy na Netlify (Drag and Drop)
+1. Acesse [app.netlify.com/drop](https://app.netlify.com/drop)
+2. Arraste e solte a pasta **`out`** (localizada em `Projeto/v1/out`) na área indicada
+3. O deploy é publicado instantaneamente com HTTPS e CDN global.
 
 ---
 
