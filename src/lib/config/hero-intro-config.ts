@@ -31,14 +31,14 @@ export const HERO_INTRO_CONFIG: HeroIntroConfig = {
 
   wordmarkText: "JARIS",
 
-  // Elevação harmônica da formiga para criar o espaço ideal para o texto do logo
-  antLiftClass: "-translate-y-[5.5vh] sm:-translate-y-[6.5vh] lg:-translate-y-[7.5vh]",
+  // Elevação aumentada para afastar a formiga do texto e dar respiro elegante
+  antLiftClass: "-translate-y-[8vh] sm:-translate-y-[9.5vh] lg:-translate-y-[10.5vh]",
 
-  // Posição calculada logo abaixo das patas traseiras e abdômen
-  wordmarkPositionClass: "top-[72vh] sm:top-[72.5vh] lg:top-[73vh]",
+  // Posição vertical mais espaçada abaixo da formiga
+  wordmarkPositionClass: "top-[75vh] sm:top-[75.5vh] lg:top-[76vh]",
 
-  // Tipografia do logotipo: preta sólida (#111827), caixa alta, peso black, tamanho imponente e tracking calibrado
-  // O -mr-[0.24em] compensa o tracking da última letra ("S"), garantindo centralização matemática absoluta da letra "R" no eixo X
+  // Tipografia do logotipo ampliada para ultrapassar a largura da formiga,
+  // com tracking calibrado e centralização matemática absoluta no eixo X (-mr-[0.24em])
   wordmarkTypographyClass:
-    "font-sans font-black tracking-[0.24em] text-[#111827] text-5xl sm:text-6xl md:text-7xl lg:text-[5.5rem] xl:text-[6.25rem] select-none uppercase inline-block -mr-[0.24em]",
+    "font-sans font-black tracking-[0.24em] text-[#111827] text-6xl sm:text-7xl md:text-8xl lg:text-[7.5rem] xl:text-[8.5rem] 2xl:text-[9.5rem] leading-none select-none uppercase inline-block -mr-[0.24em]",
 };
