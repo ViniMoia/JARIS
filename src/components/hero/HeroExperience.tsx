@@ -8,6 +8,7 @@ import { AntParticleSystem } from "./particles/ParticleSystem";
 import { VesperBrainSystem } from "./vesper/VesperBrainSystem";
 import { BrainSplitOverlay } from "./BrainSplitOverlay";
 import { ScrollIndicator } from "./ScrollIndicator";
+import { HERO_INTRO_CONFIG } from "@/lib/config/hero-intro-config";
 
 const AntParticleScene = dynamic(
   () => import("./AntParticleScene").then((mod) => mod.AntParticleScene),
@@ -30,6 +31,7 @@ export function HeroExperience() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const stageRef = useRef<HTMLDivElement | null>(null);
   const scrollIndicatorRef = useRef<HTMLDivElement | null>(null);
+  const wordmarkRef = useRef<HTMLDivElement | null>(null);
   const overlayRef = useRef<HTMLDivElement | null>(null);
   const vesperContainerRef = useRef<HTMLDivElement | null>(null);
   const antContainerRef = useRef<HTMLDivElement | null>(null);
@@ -96,6 +98,14 @@ export function HeroExperience() {
         indicator.style.transform = reducedMotion
           ? "translate(-50%, 0)"
           : `translate(-50%, ${((1 - indicatorAlpha) * -10).toFixed(2)}px)`;
+      }
+
+      if (wordmarkRef.current) {
+        const wordmarkAlpha = Math.max(0, 1 - scrollProgress / 0.08);
+        wordmarkRef.current.style.opacity = wordmarkAlpha.toFixed(3);
+        wordmarkRef.current.style.transform = reducedMotion
+          ? "translate(-50%, 0)"
+          : `translate(-50%, ${((1 - wordmarkAlpha) * 10).toFixed(2)}px)`;
       }
 
       // 3. Hero overlay copy & header reveal & exit fade
@@ -212,9 +222,27 @@ export function HeroExperience() {
         <div ref={vesperContainerRef} className="absolute inset-0 z-0" />
 
         {/* Layer 2: Ant Particle Scene (Estado 01 pure white background and orange particles) */}
-        <div ref={antContainerRef} className="absolute inset-0 z-[1] transition-opacity duration-300">
+        <div
+          ref={antContainerRef}
+          className={`absolute inset-0 z-[1] transition-opacity duration-300 ${
+            HERO_INTRO_CONFIG.showLogoWordmark ? HERO_INTRO_CONFIG.antLiftClass : ""
+          }`}
+        >
           <AntParticleScene onSystemReady={handleSystemReady} />
         </div>
+
+        {/* Wordmark JARIS abaixo da formiga (Fiel ao logotipo oficial) */}
+        {HERO_INTRO_CONFIG.showLogoWordmark && (
+          <div
+            ref={wordmarkRef}
+            aria-hidden="true"
+            className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${HERO_INTRO_CONFIG.wordmarkPositionClass} z-[2] text-center will-change-transform`}
+          >
+            <span className={HERO_INTRO_CONFIG.wordmarkTypographyClass}>
+              {HERO_INTRO_CONFIG.wordmarkText}
+            </span>
+          </div>
+        )}
 
         {/* Layer 3: Split Overlay Copy & Indicator */}
         <BrainSplitOverlay ref={overlayRef} />
