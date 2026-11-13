@@ -17,6 +17,10 @@ const AntParticleScene = dynamic(
   }
 );
 
+function clamp(v: number, lo: number, hi: number): number {
+  return Math.max(lo, Math.min(hi, v));
+}
+
 function smoothstep(edge0: number, edge1: number, x: number): number {
   const t = Math.max(0, Math.min(1, (x - edge0) / (edge1 - edge0)));
   return t * t * (3 - 2 * t);
@@ -62,46 +66,56 @@ export function HeroExperience() {
     const revealItems = Array.from(
       overlay.querySelectorAll<HTMLElement>("[data-brain-reveal]")
     );
-    const ctaContainer = overlay.querySelector<HTMLElement>("[data-brain-cta]");
+    const interactiveElements = Array.from(
+      overlay.querySelectorAll<HTMLElement>("a, button, [data-brain-cta]")
+    );
 
     const syncStage = (scrollProgress: number) => {
       // 1. Ant burst & fade out as scroll reaches the mid-stage
-      const morphP = Math.min(1, Math.max(0, scrollProgress / 0.70));
+      const morphP = Math.min(1, Math.max(0, scrollProgress / 0.50));
       morphProgressRef.current = morphP;
       systemRef.current?.setMorphProgress(morphP);
 
       if (antContainer) {
-        const antAlpha = Math.max(0, 1 - smoothstep(0.35, 0.65, scrollProgress));
+        const antAlpha = Math.max(0, 1 - smoothstep(0.24, 0.48, scrollProgress));
         antContainer.style.opacity = antAlpha.toFixed(3);
       }
 
-      // 2. Vesper Brain System emerges faithful to the original Vesper scene
-      vesperSystem.setScrollProgress(scrollProgress);
+      // 2. Outro progression (Stage 02 -> Dobra 02)
+      // Generous outro window: 25% of 3.8vh = ~0.95vh of dedicated scroll distance
+      const outro = clamp((scrollProgress - 0.75) / 0.25, 0, 1);
+      const brainProgress = clamp(scrollProgress / 0.58, 0, 1);
+      vesperSystem.setScrollProgress(brainProgress, outro);
 
       if (indicator) {
-        const indicatorAlpha = Math.max(0, 1 - scrollProgress / 0.12);
+        const indicatorAlpha = Math.max(0, 1 - scrollProgress / 0.08);
         indicator.style.opacity = indicatorAlpha.toFixed(3);
         indicator.style.transform = reducedMotion
           ? "translate(-50%, 0)"
           : `translate(-50%, ${((1 - indicatorAlpha) * -10).toFixed(2)}px)`;
       }
 
-      const overlayAlpha = smoothstep(0.74, 0.92, scrollProgress);
+      // 3. Hero overlay copy & header reveal & exit fade
+      // Reveals between 0.52 and 0.64; fades out gently during the initial rotation phase (outro 0.0 -> 0.30)
+      const revealIn = smoothstep(0.52, 0.64, scrollProgress);
+      const outroFade = 1 - smoothstep(0.0, 0.30, outro);
+      const overlayAlpha = revealIn * outroFade;
       overlay.style.opacity = overlayAlpha.toFixed(3);
-      const interactive = scrollProgress >= 0.82;
+
+      const interactive = scrollProgress >= 0.60 && outro <= 0.05;
       overlay.setAttribute("aria-hidden", interactive ? "false" : "true");
-      if (ctaContainer) {
-        ctaContainer.style.pointerEvents = interactive ? "auto" : "none";
-      }
+      interactiveElements.forEach((el) => {
+        el.style.pointerEvents = interactive ? "auto" : "none";
+      });
 
       for (let i = 0; i < revealItems.length; i++) {
         const item = revealItems[i];
-        const start = 0.74 + i * 0.032;
-        const end = Math.min(0.98, start + 0.14);
-        const itemAlpha = smoothstep(start, end, scrollProgress);
+        const start = 0.52 + i * 0.022;
+        const end = Math.min(0.68, start + 0.09);
+        const itemAlpha = smoothstep(start, end, scrollProgress) * outroFade;
         item.style.opacity = itemAlpha.toFixed(3);
         if (!reducedMotion) {
-          const offsetY = (1 - itemAlpha) * 18;
+          const offsetY = (1 - smoothstep(start, end, scrollProgress)) * 18;
           item.style.transform = `translate3d(0, ${offsetY.toFixed(2)}px, 0)`;
         }
       }
@@ -134,8 +148,8 @@ export function HeroExperience() {
         anticipatePin: 1,
         invalidateOnRefresh: true,
         start: "top top",
-        end: () => `+=${Math.round(window.innerHeight * 2.2)}`,
-        scrub: reducedMotion ? false : 0.25,
+        end: () => `+=${Math.round(window.innerHeight * 4.2)}`,
+        scrub: reducedMotion ? false : 0.85,
         onUpdate: (self) => {
           syncStage(self.progress);
         },
@@ -152,6 +166,7 @@ export function HeroExperience() {
 
   return (
     <section
+      id="hero"
       ref={sectionRef}
       aria-label="Experiência interativa JARIS"
       className="relative w-full bg-[#ffffff]"

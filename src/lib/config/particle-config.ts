@@ -22,6 +22,13 @@ export const HERO_STAGE_02_COPY = {
   ctaHref: "#plataforma",
   rightTagLines: ["Centralize operações", "Otimize decisões"] as const,
   rightQuoteLines: ["Inteligência coletiva", "em operação"] as const,
+  headerNav: [
+    { label: "Plataforma", href: "#plataforma" },
+    { label: "Soluções", href: "#solucoes" },
+    { label: "Sobre", href: "#sobre" },
+  ] as const,
+  headerCtaLabel: "Solicitar Demo",
+  headerCtaHref: "#contato",
 } as const;
 
 export const PARTICLE_CONFIG = {

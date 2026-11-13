@@ -120,7 +120,8 @@ export const VESPER_BRAIN_VERTEX_SHADER = /* glsl */ `
     dMouse.x *= uAspect;
     vCursor = (1.0 - smoothstep(0.0, uCursorRadius, length(dMouse))) * uCursor;
 
-    float baseSize = uSize * (iResolutionY / 720.0) * (200.0 / -mv.z);
+    float safeDepth = max(1.8, -mv.z);
+    float baseSize = uSize * (iResolutionY / 720.0) * (200.0 / safeDepth);
     gl_PointSize = baseSize * (1.0 + fire * 1.5 + vHighlight * 1.8 + vCursor * 1.3);
     vDepth = -mv.z;
   }
@@ -191,7 +192,7 @@ export const VESPER_BRAIN_FRAGMENT_SHADER = /* glsl */ `
 
     float focusDim = 1.0 - uHighlightStrength * uFocusFadeStrength * vFar;
     alphaOut *= focusDim;
-    alphaOut *= 1.0 - smoothstep(0.0, 1.0, uExplode) * 0.8;
+    alphaOut *= 1.0 - smoothstep(0.4, 1.2, uExplode) * 0.7;
     alphaOut = clamp(alphaOut, 0.0, 1.0);
 
     gl_FragColor = vec4(col, alphaOut);

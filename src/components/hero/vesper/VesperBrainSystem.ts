@@ -75,6 +75,7 @@ export class VesperBrainSystem {
   };
 
   private scrollProgress = 0;
+  private outroProgress = 0;
   private pointerNdc = new THREE.Vector2(-10, -10);
   private pointerActive = false;
   private parallax = { rx: 0, ry: 0 };
@@ -215,8 +216,9 @@ export class VesperBrainSystem {
     );
   }
 
-  public setScrollProgress(progress: number): void {
+  public setScrollProgress(progress: number, outro = 0): void {
     this.scrollProgress = clamp(progress, 0, 1);
+    this.outroProgress = clamp(outro, 0, 1);
   }
 
   public setPointerNdc(x: number, y: number, active: boolean): void {
@@ -250,15 +252,41 @@ export class VesperBrainSystem {
 
     // Scroll transitions:
     // When scroll = 0 (Estado 01 / Ant): backdrop and brain are 0% visible (pure white background)
-    // Between scroll 0.15 and 0.78: backdrop fades in, uExplode goes from 1.0 -> 0.0 (exploding inward to form the brain!)
+    // Between scroll 0.18 and 0.78: backdrop fades in, particles converge to assemble the brain
     // At scroll >= 0.78: Brain is 100% poised, alive and assembled in Estado 02!
     const appear = smoothstep(0.18, 0.78, this.scrollProgress);
     const backdropAlpha = smoothstep(0.15, 0.65, this.scrollProgress);
-    const explode = clamp(1.0 - appear, 0, 1);
 
-    this.backdropUniforms.uAlpha.value = backdropAlpha;
-    this.brainUniforms.iAlpha.value = appear;
+    // Outro transition (leaving Hero towards Dobra 02):
+    // Cadence in 2 distinct stages:
+    // Stage 1 (outro 0.0 -> 0.40): Clean horizontal rotation on Y axis (~33 deg). Brain stays cohesive & assembled.
+    // Stage 2 (outro 0.32 -> 1.00): Progressive expansion & forward flight towards and past the camera.
+    const outro = this.outroProgress;
+
+    // Stage 1: Clean horizontal rotation around Y
+    const outroSpin = smoothstep(0.0, 0.45, outro) * 0.52; // ~30 deg
+
+    // Stage 2: Smooth progressive ease-in dispersion & camera approach
+    // Disperses across 82% of the outro window (0.18 to 1.0) for a long, fluid runway
+    const dispersionT = smoothstep(0.18, 0.98, outro);
+    const exitEase = Math.pow(dispersionT, 1.25); // very smooth, gradual curve
+
+    // uExplode: inward during assembly (1.0 -> 0.0), outward during outro exit (0.0 -> 1.05)
+    const assemblyExplode = clamp(1.0 - appear, 0, 1);
+    const exitExplode = exitEase * 1.05;
+    const explode = Math.max(assemblyExplode, exitExplode);
+
+    // Alpha: stays clearly visible as particles rush forward, fading as they pass the screen
+    const outroFade = 1.0 - smoothstep(0.70, 0.98, outro);
+    const finalAlpha = appear * outroFade;
+
+    this.backdropUniforms.uAlpha.value =
+      backdropAlpha * (1.0 - smoothstep(0.1, 0.6, outro));
+    this.brainUniforms.iAlpha.value = finalAlpha;
     this.brainUniforms.uExplode.value = explode;
+
+    // Advance position.z gently toward screen during exit (1.85 units, camera at 4.3)
+    this.group.position.z = exitEase * 1.85;
 
     // Parallax & rotation from Vesper
     const cursorTarget = this.pointerActive ? 1 : 0;
@@ -272,18 +300,26 @@ export class VesperBrainSystem {
         (this.pointerNdc.y - this.brainUniforms.uMouse.value.y) * 0.18;
     }
 
-    const spin = clamp((this.scrollProgress - 0.5) / 0.5, 0, 1) * VESPER_BRAIN_CONFIG.scrollSpin;
+    const spin =
+      clamp((this.scrollProgress - 0.5) / 0.5, 0, 1) *
+      VESPER_BRAIN_CONFIG.scrollSpin;
     const cursor = this.brainUniforms.uCursor.value;
-    const targetRy = clamp(this.pointerNdc.x, -1, 1) * VESPER_BRAIN_CONFIG.cursorTilt * cursor;
-    const targetRx = -clamp(this.pointerNdc.y, -1, 1) * VESPER_BRAIN_CONFIG.cursorTilt * 0.65 * cursor;
+    const targetRy =
+      clamp(this.pointerNdc.x, -1, 1) * VESPER_BRAIN_CONFIG.cursorTilt * cursor;
+    const targetRx =
+      -clamp(this.pointerNdc.y, -1, 1) *
+      VESPER_BRAIN_CONFIG.cursorTilt *
+      0.65 *
+      cursor;
 
     this.parallax.ry += (targetRy - this.parallax.ry) * 0.05;
     this.parallax.rx += (targetRx - this.parallax.rx) * 0.05;
 
-    this.group.rotation.y = VESPER_BRAIN_CONFIG.baseRotationY + spin + this.parallax.ry;
+    this.group.rotation.y =
+      VESPER_BRAIN_CONFIG.baseRotationY + spin + outroSpin + this.parallax.ry;
     this.group.rotation.x = VESPER_BRAIN_CONFIG.baseRotationX + this.parallax.rx;
 
-    this.group.visible = appear > 0.001;
+    this.group.visible = finalAlpha > 0.001;
     this.backdropMesh.visible = false;
 
     this.renderer.render(this.scene, this.camera);
