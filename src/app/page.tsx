@@ -6,6 +6,7 @@ import { PdcaSection } from "@/components/sections/PdcaSection";
 import { AiHighlightsSection } from "@/components/sections/AiHighlightsSection";
 import { DiferenciaisSection } from "@/components/sections/DiferenciaisSection";
 import { DataIntelligenceSection } from "@/components/sections/DataIntelligenceSection";
+import { RoadmapSection } from "@/components/sections/RoadmapSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
 
@@ -21,6 +22,7 @@ export default function Home() {
         <AiHighlightsSection />
         <DiferenciaisSection />
         <DataIntelligenceSection />
+        <RoadmapSection />
         <ContactSection />
         <Footer />
       </main>
