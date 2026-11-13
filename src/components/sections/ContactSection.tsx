@@ -148,8 +148,8 @@ export function ContactSection() {
 
             {/* Título Principal */}
             <h2 className="mb-5 font-sans text-3xl sm:text-4xl lg:text-[2.65rem] font-extrabold tracking-[-0.03em] text-white leading-[1.14]">
-              Pronto para{" "}
-              <span className="text-[#D95B26]">centralizar sua gestão com IA?</span>
+              Pronto para centralizar sua gestão com{" "}
+              <span className="text-[#D95B26]">IA</span>?
             </h2>
 
             {/* Parágrafo de Apoio */}
