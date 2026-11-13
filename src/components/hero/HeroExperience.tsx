@@ -70,6 +70,9 @@ export function HeroExperience() {
       overlay.querySelectorAll<HTMLElement>("a, button, [data-brain-cta]")
     );
 
+    let headerRevealed = false;
+    let headerGlass = false;
+
     const syncStage = (scrollProgress: number) => {
       // 1. Ant burst & fade out as scroll reaches the mid-stage
       const morphP = Math.min(1, Math.max(0, scrollProgress / 0.50));
@@ -118,6 +121,36 @@ export function HeroExperience() {
           const offsetY = (1 - smoothstep(start, end, scrollProgress)) * 18;
           item.style.transform = `translate3d(0, ${offsetY.toFixed(2)}px, 0)`;
         }
+      }
+
+      // 4. Synchronize global fixed header:
+      // Completely hidden during initial ant phase; reveals when brain forms (scrollProgress >= 0.50);
+      // acquires frosted glass backdrop during outro and subsequent dobras (scrollProgress >= 0.78).
+      let nextRevealed = headerRevealed;
+      if (scrollProgress >= 0.50) {
+        nextRevealed = true;
+      } else if (scrollProgress < 0.46) {
+        nextRevealed = false;
+      }
+
+      let nextGlass = headerGlass;
+      if (scrollProgress >= 0.78) {
+        nextGlass = true;
+      } else if (scrollProgress < 0.74) {
+        nextGlass = false;
+      }
+
+      if (nextRevealed !== headerRevealed || nextGlass !== headerGlass) {
+        headerRevealed = nextRevealed;
+        headerGlass = nextGlass;
+        window.dispatchEvent(
+          new CustomEvent("jaris:hero-stage", {
+            detail: {
+              isRevealed: headerRevealed,
+              isGlass: headerGlass,
+            },
+          })
+        );
       }
     };
 

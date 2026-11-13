@@ -5,17 +5,47 @@ import Image from "next/image";
 import { HERO_STAGE_02_COPY } from "@/lib/config/particle-config";
 
 export function Header() {
+  const [isVisible, setIsVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+    // 1. Fallback / check on direct scroll or page load at lower sections
+    const checkScroll = () => {
+      const scrollY = window.scrollY;
+      const heroThreshold = window.innerHeight * 1.9;
+      const glassThreshold = window.innerHeight * 3.2;
+
+      if (scrollY >= heroThreshold) {
+        setIsVisible(true);
+        setIsScrolled(scrollY >= glassThreshold);
+      } else if (scrollY < 50) {
+        // At the very top (ant stage): header must NOT be visible
+        setIsVisible(false);
+        setIsScrolled(false);
+      }
     };
 
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
+    // 2. Exact synchronization with Hero Stage 02 brain formation
+    const handleHeroStage = (e: Event) => {
+      const detail = (e as CustomEvent).detail;
+      if (detail) {
+        if (typeof detail.isRevealed === "boolean") {
+          setIsVisible(detail.isRevealed);
+        }
+        if (typeof detail.isGlass === "boolean") {
+          setIsScrolled(detail.isGlass);
+        }
+      }
+    };
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", checkScroll, { passive: true });
+    window.addEventListener("jaris:hero-stage", handleHeroStage);
+    checkScroll();
+
+    return () => {
+      window.removeEventListener("scroll", checkScroll);
+      window.removeEventListener("jaris:hero-stage", handleHeroStage);
+    };
   }, []);
 
   const handleScrollToTop = (e: React.MouseEvent) => {
@@ -52,7 +82,12 @@ export function Header() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
+      id="jaris-global-header"
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ease-out ${
+        isVisible
+          ? "opacity-100 pointer-events-auto translate-y-0"
+          : "opacity-0 pointer-events-none -translate-y-4"
+      } ${
         isScrolled
           ? "bg-white/85 backdrop-blur-md border-b border-black/[0.08] shadow-[0_4px_24px_rgba(0,0,0,0.04)] py-2.5 sm:py-3"
           : "bg-transparent py-4 sm:py-5 lg:py-6"
