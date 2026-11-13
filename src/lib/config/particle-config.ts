@@ -19,16 +19,16 @@ export const HERO_STAGE_02_COPY = {
   leftDescription:
     "Uma plataforma modular movida a Inteligência Artificial nativa em cada processo.",
   ctaLabel: "Explorar Plataforma",
-  ctaHref: "#plataforma",
+  ctaHref: "https://app.jaris.com.br/login",
   rightTagLines: ["Centralize operações", "Otimize decisões"] as const,
   rightQuoteLines: ["Inteligência coletiva", "em operação"] as const,
   headerNav: [
-    { label: "Plataforma", href: "#plataforma" },
-    { label: "Soluções", href: "#solucoes" },
-    { label: "Sobre", href: "#sobre" },
+    { label: "Plataforma", href: "#ecossistema-modular" },
+    { label: "Soluções", href: "#destaques-ia" },
+    { label: "Sobre", href: "#cenario-atual" },
   ] as const,
   headerCtaLabel: "Solicitar Demo",
-  headerCtaHref: "#contato",
+  headerCtaHref: "#fale-com-time",
 } as const;
 
 export const PARTICLE_CONFIG = {

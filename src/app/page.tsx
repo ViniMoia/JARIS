@@ -1,3 +1,4 @@
+import { Header } from "@/components/navigation/Header";
 import { HeroExperience } from "@/components/hero/HeroExperience";
 import { OperationalPainsSection } from "@/components/sections/OperationalPainsSection";
 import { ModularEcosystemSection } from "@/components/sections/ModularEcosystemSection";
@@ -9,15 +10,18 @@ import { Footer } from "@/components/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="w-full bg-[#ffffff]">
-      <HeroExperience />
-      <OperationalPainsSection />
-      <ModularEcosystemSection />
-      <PdcaSection />
-      <AiHighlightsSection />
-      <DataIntelligenceSection />
-      <ContactSection />
-      <Footer />
-    </main>
+    <>
+      <Header />
+      <main className="w-full bg-[#ffffff]">
+        <HeroExperience />
+        <OperationalPainsSection />
+        <ModularEcosystemSection />
+        <PdcaSection />
+        <AiHighlightsSection />
+        <DataIntelligenceSection />
+        <ContactSection />
+        <Footer />
+      </main>
+    </>
   );
 }

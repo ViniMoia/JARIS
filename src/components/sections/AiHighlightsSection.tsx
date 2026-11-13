@@ -305,8 +305,9 @@ export function AiHighlightsSection() {
       ref={sectionRef}
       id="destaques-ia"
       aria-label="Destaques com IA e Fundo de Funil"
-      className="relative w-full min-h-screen lg:h-[100dvh] lg:min-h-[660px] bg-gradient-to-b from-[#0B1E36] via-[#0D2444] to-[#0A1B30] text-white flex flex-col justify-center px-5 sm:px-8 lg:px-10 overflow-hidden"
+      className="relative w-full min-h-screen lg:h-[100dvh] lg:min-h-[660px] bg-gradient-to-b from-[#0B1E36] via-[#0D2444] to-[#0A1B30] text-white flex flex-col justify-center px-5 sm:px-8 lg:px-10 overflow-hidden scroll-mt-20"
     >
+      <span id="solucoes" className="scroll-mt-20 pointer-events-none absolute top-0" />
       {/* Iluminação ambiente azul tecnológica com realce âmbar sutil */}
       <div
         aria-hidden="true"

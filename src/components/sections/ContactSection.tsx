@@ -120,8 +120,9 @@ export function ContactSection() {
     <section
       id="fale-com-time"
       aria-label="Fale com o Time e Agendamento de Demonstração"
-      className="relative w-full bg-gradient-to-b from-[#0B1E36] via-[#0D2444] to-[#0A1B30] text-white py-20 sm:py-28 lg:py-32 overflow-hidden"
+      className="relative w-full bg-gradient-to-b from-[#0B1E36] via-[#0D2444] to-[#0A1B30] text-white py-20 sm:py-28 lg:py-32 overflow-hidden scroll-mt-20"
     >
+      <span id="contato" className="scroll-mt-20 pointer-events-none absolute top-0" />
       {/* Iluminação ambiente azul tecnológica com realce âmbar sutil */}
       <div
         aria-hidden="true"

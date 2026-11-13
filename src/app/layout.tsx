@@ -61,7 +61,7 @@ export default function RootLayout({
   return (
     <html
       lang="pt-BR"
-      className={`${generalSans.variable} ${mulish.variable} font-sans antialiased`}
+      className={`${generalSans.variable} ${mulish.variable} font-sans antialiased scroll-smooth`}
     >
       <body className="min-h-screen bg-[#ffffff] text-[#111827] font-sans selection:bg-[#111827] selection:text-white">
         {children}

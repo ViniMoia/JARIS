@@ -389,8 +389,10 @@ export function ModularEcosystemSection() {
     <section
       id="ecossistema-modular"
       aria-label="Ecossistema Modular JARIS"
-      className="relative w-full bg-[#FFFFFF] py-24 sm:py-32 lg:py-36 text-[#1D1D1F]"
+      className="relative w-full bg-[#FFFFFF] py-24 sm:py-32 lg:py-36 text-[#1D1D1F] scroll-mt-20"
     >
+      <span id="plataforma" className="scroll-mt-20 pointer-events-none absolute top-0" />
+      <span id="ecossistema" className="scroll-mt-20 pointer-events-none absolute top-0" />
       <div className="mx-auto w-full max-w-[1240px] px-5 sm:px-8 lg:px-10">
         {/* 1. Header: Top, Left-aligned */}
         <div className="mb-14 sm:mb-16 lg:mb-20">
