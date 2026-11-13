@@ -221,12 +221,10 @@ export function HeroExperience() {
         {/* Layer 1: Vesper 3D Brain Stage (130k particles with Normal Blending on pure white canvas) */}
         <div ref={vesperContainerRef} className="absolute inset-0 z-0" />
 
-        {/* Layer 2: Ant Particle Scene (Estado 01 pure white background and orange particles) */}
+        {/* Layer 2: Ant Particle Scene (Estado 01 pure white background and orange particles, 100% fullscreen canvas) */}
         <div
           ref={antContainerRef}
-          className={`absolute inset-0 z-[1] transition-opacity duration-300 ${
-            HERO_INTRO_CONFIG.showLogoWordmark ? HERO_INTRO_CONFIG.antLiftClass : ""
-          }`}
+          className="absolute inset-0 z-[1] transition-opacity duration-300"
         >
           <AntParticleScene onSystemReady={handleSystemReady} />
         </div>

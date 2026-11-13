@@ -6,6 +6,7 @@ import { createAntParticleGeometry, ParticleTargetBuffers } from "./ParticleGeom
 import { createAntParticleMaterial } from "./ParticleMaterial";
 import { ParticlePhysics, PointerState } from "./ParticlePhysics";
 import { detectDeviceTier, processReferenceParticles } from "./ReferenceProcessor";
+import { HERO_INTRO_CONFIG } from "@/lib/config/hero-intro-config";
 
 export class AntParticleSystem {
   private readonly container: HTMLElement;
@@ -22,6 +23,7 @@ export class AntParticleSystem {
   private deviceTier: DeviceTier;
   private halfWidth = 1;
   private halfHeight = 1;
+  private baseWorldOffsetY = 0;
   private morphProgress = 0;
 
   private readonly pointerWorld: PointerState = { x: 0, y: 0, active: false };
@@ -108,6 +110,14 @@ export class AntParticleSystem {
     const clamped = Math.max(0, Math.min(1, progress));
     this.morphProgress = clamped;
 
+    // Smoothly re-center particles toward the origin as they scatter into the brain
+    const blend = Math.max(0, 1 - clamped / 0.35);
+    const nextY = this.baseWorldOffsetY * blend;
+    if (Math.abs(this.points.position.y - nextY) > 1e-4) {
+      this.points.position.y = nextY;
+      this.needsOneRender = true;
+    }
+
     const changed = this.physics.updateMorphTargets(
       this.targets,
       clamped,
@@ -139,7 +149,7 @@ export class AntParticleSystem {
     }
 
     this.pointerWorld.x = ndcX * this.halfWidth;
-    this.pointerWorld.y = ndcY * this.halfHeight;
+    this.pointerWorld.y = ndcY * this.halfHeight - this.points.position.y;
     this.pointerWorld.active = true;
     this.requestFrame();
   }
@@ -163,6 +173,14 @@ export class AntParticleSystem {
     );
     this.halfWidth = fit.halfWidth;
     this.halfHeight = fit.halfHeight;
+
+    // Set elevation in 3D world space (Three.js) so the canvas covers 100% of the screen without clipping
+    const liftRatio = HERO_INTRO_CONFIG.showLogoWordmark
+      ? HERO_INTRO_CONFIG.antLiftRatio[this.deviceTier]
+      : 0;
+    this.baseWorldOffsetY = liftRatio * (2 * this.halfHeight);
+    const blend = Math.max(0, 1 - this.morphProgress / 0.35);
+    this.points.position.y = this.baseWorldOffsetY * blend;
 
     const pointSizeCss = Math.min(
       profile.maxPointSizeCss,

@@ -10,9 +10,14 @@ export interface HeroIntroConfig {
   wordmarkText: string;
 
   /**
-   * Classe Tailwind que eleva a formiga em relação ao centro da tela.
+   * Fração de elevação da formiga em relação à altura total do viewport no espaço WebGL 3D.
+   * Ex: desktop 0.115 = 11.5% da altura da tela (11.5vh).
    */
-  antLiftClass: string;
+  antLiftRatio: {
+    desktop: number;
+    tablet: number;
+    mobile: number;
+  };
 
   /**
    * Posicionamento vertical da palavra JARIS na tela.
@@ -31,8 +36,12 @@ export const HERO_INTRO_CONFIG: HeroIntroConfig = {
 
   wordmarkText: "JARIS",
 
-  // Elevação harmônica para manter a formiga bem posicionada e com respiro elegante
-  antLiftClass: "-translate-y-[9vh] sm:-translate-y-[10.5vh] lg:-translate-y-[11.5vh]",
+  // Elevação matemática no WebGL (Three.js) para preservar o canvas em 100% de tela
+  antLiftRatio: {
+    desktop: 0.115,
+    tablet: 0.105,
+    mobile: 0.09,
+  },
 
   // Posição vertical elevada para afastar o texto do aviso de "Scroll"
   wordmarkPositionClass: "top-[71vh] sm:top-[71.5vh] lg:top-[72vh]",
