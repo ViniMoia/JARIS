@@ -18,7 +18,7 @@ export const HERO_STAGE_02_COPY = {
   headlineLines: ["JARIS Gestão", "Empresarial", "Inteligente"] as const,
   leftDescription:
     "Uma plataforma modular movida a Inteligência Artificial nativa em cada processo.",
-  ctaLabel: "Explorar Plataforma",
+  ctaLabel: "Solicitar Demo",
   ctaHref: "#plataforma",
   rightTagLines: ["Centralize operações", "Otimize decisões"] as const,
   rightQuoteLines: ["Inteligência coletiva", "em operação"] as const,
