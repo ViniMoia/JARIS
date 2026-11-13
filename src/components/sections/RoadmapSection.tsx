@@ -282,7 +282,7 @@ function RoadmapCard({ item, isActive }: RoadmapCardProps) {
 // --- Seção Principal de Roteiro de Evolução com Linha de Luz Vertical ---
 
 export function RoadmapSection() {
-  const { tag, titlePrefix, titleHighlight, subtitle, earlyAdopterCard, phases } =
+  const { tag, titlePrefix, titleHighlight, subtitle, phases } =
     ROADMAP_CONFIG;
 
   const sectionRef = useRef<HTMLElement | null>(null);
@@ -432,57 +432,8 @@ export function RoadmapSection() {
             })}
           </div>
         </div>
-
-        {/* =========================================================
-            CARD DE CONVITE EARLY ADOPTER (Conversão para Formulário)
-            ========================================================= */}
-        <div className="mt-20 sm:mt-28 max-w-[1040px] mx-auto">
-          <div className="relative overflow-hidden rounded-none border border-black/10 bg-gradient-to-r from-[#0B1E36] to-[#0A1B30] p-8 sm:p-12 text-white shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
-            {/* Brilho âmbar de destaque */}
-            <div
-              aria-hidden="true"
-              className="pointer-events-none absolute top-0 right-0 size-[400px] rounded-full bg-[#D95B26]/15 blur-[120px]"
-            />
-
-            <div className="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-              <div className="max-w-2xl">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="size-2 rounded-none bg-[#D95B26] animate-pulse" />
-                  <span className="font-sans text-[0.75rem] font-bold tracking-[0.2em] text-[#D95B26] uppercase">
-                    {earlyAdopterCard.tag}
-                  </span>
-                </div>
-                <h3 className="font-sans text-2xl sm:text-3xl font-extrabold text-white tracking-[-0.02em] mb-3">
-                  {earlyAdopterCard.title}
-                </h3>
-                <p className="font-sans text-sm sm:text-base text-blue-100/80 leading-relaxed">
-                  {earlyAdopterCard.description}
-                </p>
-              </div>
-
-              <div className="flex-shrink-0">
-                <a
-                  href={earlyAdopterCard.ctaHref}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    const contactSection =
-                      document.getElementById("fale-com-time") ||
-                      document.getElementById("contato");
-                    if (contactSection) {
-                      contactSection.scrollIntoView({ behavior: "smooth" });
-                    }
-                  }}
-                  className="group inline-flex items-center outline-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#D95B26]"
-                >
-                  <span className="flex h-[3rem] items-center justify-center rounded-none bg-[#D95B26] px-6 sm:px-8 font-sans text-sm sm:text-base font-bold tracking-[0.02em] text-white transition-all duration-300 group-hover:bg-[#c44e1c] group-hover:shadow-[0_10px_30px_rgba(217,91,38,0.4)]">
-                    {earlyAdopterCard.ctaLabel}
-                  </span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
 }
+

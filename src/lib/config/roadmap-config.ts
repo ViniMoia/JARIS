@@ -16,13 +16,6 @@ export interface RoadmapConfig {
   titleHighlight: string;
   subtitle: string;
   phases: RoadmapPhaseItem[];
-  earlyAdopterCard: {
-    tag: string;
-    title: string;
-    description: string;
-    ctaLabel: string;
-    ctaHref: string;
-  };
 }
 
 export const ROADMAP_CONFIG: RoadmapConfig = {
@@ -31,14 +24,6 @@ export const ROADMAP_CONFIG: RoadmapConfig = {
   titleHighlight: "5 fases estratégicas.",
   subtitle:
     "Transparência total no desenvolvimento da plataforma. Conheça as etapas de entrega e participe como parceiro Early Adopter moldando o produto com benefícios de acesso antecipado.",
-  earlyAdopterCard: {
-    tag: "ACESSO ANTECIPADO",
-    title: "Seja uma Empresa Parceira Early Adopter",
-    description:
-      "Empresas parceiras testam novas fases em primeira mão, recebem condições comerciais exclusivas e possuem canal direto com nosso time de engenharia para priorizar demandas reais da sua operação.",
-    ctaLabel: "Solicitar Demonstração & Acesso Antecipado",
-    ctaHref: "#fale-com-time",
-  },
   phases: [
     {
       id: "fase-1",
@@ -97,3 +82,4 @@ export const ROADMAP_CONFIG: RoadmapConfig = {
     },
   ],
 };
+
