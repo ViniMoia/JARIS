@@ -18,17 +18,17 @@ export const HERO_STAGE_02_COPY = {
   headlineLines: ["JARIS Gestão", "Empresarial", "Inteligente"] as const,
   leftDescription:
     "Uma plataforma modular movida a Inteligência Artificial nativa em cada processo.",
-  ctaLabel: "Solicitar Demo",
-  ctaHref: "#fale-com-time",
+  ctaLabel: "Explorar Plataforma",
+  ctaHref: "#plataforma",
   rightTagLines: ["Centralize operações", "Otimize decisões"] as const,
   rightQuoteLines: ["Inteligência coletiva", "em operação"] as const,
   headerNav: [
-    { label: "Plataforma", href: "#ecossistema-modular" },
-    { label: "Soluções", href: "#destaques-ia" },
-    { label: "Sobre", href: "#cenario-atual" },
+    { label: "Plataforma", href: "#plataforma" },
+    { label: "Soluções", href: "#solucoes" },
+    { label: "Sobre", href: "#sobre" },
   ] as const,
-  headerCtaLabel: "Explorar Plataforma",
-  headerCtaHref: "#cenario-atual",
+  headerCtaLabel: "Solicitar Demo",
+  headerCtaHref: "#contato",
 } as const;
 
 export const PARTICLE_CONFIG = {
