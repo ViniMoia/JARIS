@@ -326,7 +326,8 @@ export function AiHighlightsSection() {
             {header.tag}
           </span>
           <h2 className="mb-3 font-sans text-2xl sm:text-3xl lg:text-4xl font-extrabold tracking-[-0.03em] text-white leading-[1.14]">
-            {header.title}
+            Tecnologia prática gerando{" "}
+            <span className="text-[#D95B26]">impacto mensurável</span> no seu negócio.
           </h2>
           <p className="mx-auto max-w-xl font-sans text-sm sm:text-base leading-relaxed text-blue-100/80">
             {header.subtitle}

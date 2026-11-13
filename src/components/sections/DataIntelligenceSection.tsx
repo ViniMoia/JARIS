@@ -163,7 +163,8 @@ export function DataIntelligenceSection() {
 
             {/* Título Principal */}
             <h2 className="mb-5 font-sans text-3xl sm:text-4xl lg:text-[2.65rem] font-extrabold tracking-[-0.03em] text-[#1D1D1F] leading-[1.14]">
-              {header.title}
+              O JARIS trabalha para você — entregando a{" "}
+              <span className="text-[#D95B26]">informação pronta.</span>
             </h2>
 
             {/* Subtítulo Descritivo */}

@@ -180,7 +180,8 @@ export function PdcaSection() {
             {header.tag}
           </span>
           <h2 className="mb-5 font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-[-0.03em] text-[#1D1D1F] leading-[1.12]">
-            {header.title}
+            Gestão estratégica, agora operada por{" "}
+            <span className="text-[#D95B26]">agentes de IA.</span>
           </h2>
           <p className="mx-auto max-w-2xl font-sans text-base sm:text-lg leading-relaxed text-zinc-600">
             {header.subtitle}

@@ -394,7 +394,8 @@ export function OperationalPainsSection() {
             {header.tag}
           </span>
           <h2 className="mb-4 font-sans text-3xl font-extrabold tracking-[-0.03em] text-[#1D1D1F] sm:text-4xl lg:text-5xl">
-            {header.title}
+            Sua empresa{" "}
+            <span className="text-[#D95B26]">ainda opera assim?</span>
           </h2>
           <p className="max-w-2xl font-sans text-base leading-relaxed text-zinc-600 sm:text-lg">
             {header.subtitle}

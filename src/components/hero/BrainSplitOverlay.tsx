@@ -82,6 +82,7 @@ export const BrainSplitOverlay = forwardRef<HTMLDivElement>(
         >
           {HERO_STAGE_02_COPY.headlineLines.map((line, index) => {
             const isJarisLine = line.includes("JARIS");
+            const isInteligenteLine = line.includes("Inteligente");
             return (
               <span key={line} className="block">
                 {isJarisLine ? (
@@ -89,6 +90,8 @@ export const BrainSplitOverlay = forwardRef<HTMLDivElement>(
                     <span className="text-[#D95B26] font-normal">JARIS</span>
                     {line.replace("JARIS", "")}
                   </>
+                ) : isInteligenteLine ? (
+                  <span className="text-[#D95B26] font-normal">{line}</span>
                 ) : (
                   line
                 )}
