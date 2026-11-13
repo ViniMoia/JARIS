@@ -104,8 +104,8 @@ export function HeroExperience() {
         const wordmarkAlpha = Math.max(0, 1 - scrollProgress / 0.08);
         wordmarkRef.current.style.opacity = wordmarkAlpha.toFixed(3);
         wordmarkRef.current.style.transform = reducedMotion
-          ? "translate(-50%, 0)"
-          : `translate(-50%, ${((1 - wordmarkAlpha) * 10).toFixed(2)}px)`;
+          ? "none"
+          : `translate3d(0, ${((1 - wordmarkAlpha) * 12).toFixed(2)}px, 0)`;
       }
 
       // 3. Hero overlay copy & header reveal & exit fade
@@ -231,16 +231,16 @@ export function HeroExperience() {
           <AntParticleScene onSystemReady={handleSystemReady} />
         </div>
 
-        {/* Wordmark JARIS abaixo da formiga (Fiel ao logotipo oficial) */}
+        {/* Wordmark JARIS abaixo da formiga (Fiel ao logotipo oficial, 100% centralizado no eixo X) */}
         {HERO_INTRO_CONFIG.showLogoWordmark && (
           <div
             ref={wordmarkRef}
             aria-hidden="true"
-            className={`pointer-events-none absolute left-1/2 -translate-x-1/2 ${HERO_INTRO_CONFIG.wordmarkPositionClass} z-[2] text-center will-change-transform`}
+            className={`pointer-events-none absolute inset-x-0 ${HERO_INTRO_CONFIG.wordmarkPositionClass} z-[2] flex justify-center text-center will-change-transform`}
           >
-            <span className={HERO_INTRO_CONFIG.wordmarkTypographyClass}>
+            <h1 className={HERO_INTRO_CONFIG.wordmarkTypographyClass}>
               {HERO_INTRO_CONFIG.wordmarkText}
-            </span>
+            </h1>
           </div>
         )}
 
