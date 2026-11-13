@@ -4,6 +4,7 @@ import { OperationalPainsSection } from "@/components/sections/OperationalPainsS
 import { ModularEcosystemSection } from "@/components/sections/ModularEcosystemSection";
 import { PdcaSection } from "@/components/sections/PdcaSection";
 import { AiHighlightsSection } from "@/components/sections/AiHighlightsSection";
+import { DiferenciaisSection } from "@/components/sections/DiferenciaisSection";
 import { DataIntelligenceSection } from "@/components/sections/DataIntelligenceSection";
 import { ContactSection } from "@/components/sections/ContactSection";
 import { Footer } from "@/components/sections/Footer";
@@ -18,6 +19,7 @@ export default function Home() {
         <ModularEcosystemSection />
         <PdcaSection />
         <AiHighlightsSection />
+        <DiferenciaisSection />
         <DataIntelligenceSection />
         <ContactSection />
         <Footer />
