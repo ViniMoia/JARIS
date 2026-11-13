@@ -132,19 +132,19 @@ function DiferencialCard({ item }: { item: DiferencialCardItem }) {
           ? "transform 0.12s ease-out, box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1)"
           : "transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
       }}
-      className="group relative cursor-pointer overflow-hidden rounded-none border border-white/10 bg-white/[0.04] p-8 sm:p-9 lg:p-10 backdrop-blur-md transition-colors duration-300 hover:border-[#D95B26]/50 hover:bg-white/[0.07] flex flex-col justify-between shadow-[0_20px_50px_rgba(0,0,0,0.35)]"
+      className="group relative cursor-pointer overflow-hidden rounded-none border border-white/20 bg-white p-8 sm:p-9 lg:p-10 transition-all duration-300 hover:border-[#D95B26]/50 flex flex-col justify-between shadow-[0_25px_60px_rgba(0,0,0,0.45)] text-[#1D1D1F]"
     >
-      {/* Dynamic Flashlight Spotlight Zone com Glow Âmbar JARIS */}
+      {/* Dynamic Flashlight Spotlight Zone com Glow Âmbar JARIS sutil no fundo branco */}
       <div
         className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-300"
         style={{
           opacity: coords.isHovered ? 1 : 0,
-          background: `radial-gradient(550px circle at ${coords.x}px ${coords.y}px, rgba(217, 91, 38, 0.18), transparent 70%)`,
+          background: `radial-gradient(550px circle at ${coords.x}px ${coords.y}px, rgba(217, 91, 38, 0.08), transparent 70%)`,
         }}
       />
 
       {/* Linha de brilho sutil no topo do card ao passar o mouse */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#D95B26]/0 to-transparent transition-all duration-500 group-hover:via-[#D95B26]/80" />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-[3px] bg-gradient-to-r from-transparent via-[#D95B26]/0 to-transparent transition-all duration-500 group-hover:via-[#D95B26]" />
 
       {/* Conteúdo do Card */}
       <div className="relative z-10 flex flex-col h-full justify-between">
@@ -155,25 +155,25 @@ function DiferencialCard({ item }: { item: DiferencialCardItem }) {
               {item.number} • {item.pillar}
             </span>
 
-            <div className="size-12 flex items-center justify-center rounded-none bg-white/5 border border-white/10 text-[#D95B26] transition-all duration-300 group-hover:bg-[#D95B26]/15 group-hover:border-[#D95B26]/40 group-hover:scale-105">
+            <div className="size-12 flex items-center justify-center rounded-none bg-[#D95B26]/10 border border-[#D95B26]/20 text-[#D95B26] transition-all duration-300 group-hover:bg-[#D95B26]/20 group-hover:scale-105">
               {getCardIcon(item.id)}
             </div>
           </div>
 
-          {/* Título do Card */}
-          <h3 className="font-sans text-2xl sm:text-[1.65rem] font-extrabold text-white tracking-[-0.02em] mb-4 leading-snug transition-colors duration-300">
+          {/* Título do Card em Preto Apple (#1D1D1F) */}
+          <h3 className="font-sans text-2xl sm:text-[1.65rem] font-extrabold text-[#1D1D1F] tracking-[-0.02em] mb-4 leading-snug transition-colors duration-300">
             {item.title}
           </h3>
 
-          {/* Texto Explicativo */}
-          <p className="font-sans text-[0.9375rem] sm:text-base text-blue-100/75 leading-relaxed">
+          {/* Texto Explicativo em Cinza Escuro de Alto Contraste */}
+          <p className="font-sans text-[0.9375rem] sm:text-base text-zinc-600 leading-relaxed font-normal">
             {item.text}
           </p>
         </div>
 
         {/* Rodapé Interno do Card */}
-        <div className="mt-10 pt-5 border-t border-white/10 flex items-center justify-between">
-          <span className="font-sans text-[0.75rem] font-semibold tracking-[0.12em] text-white/40 uppercase transition-colors duration-300 group-hover:text-[#D95B26]">
+        <div className="mt-10 pt-5 border-t border-black/[0.08] flex items-center justify-between">
+          <span className="font-sans text-[0.75rem] font-semibold tracking-[0.12em] text-zinc-400 uppercase transition-colors duration-300 group-hover:text-[#D95B26]">
             {item.badge}
           </span>
           <span className="size-2 rounded-none bg-[#D95B26] transition-transform duration-300 group-hover:scale-150" />
@@ -241,3 +241,4 @@ export function DiferenciaisSection() {
     </section>
   );
 }
+

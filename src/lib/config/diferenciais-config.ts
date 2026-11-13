@@ -48,3 +48,4 @@ export const DIFERENCIAIS_CONFIG: DiferenciaisConfig = {
     },
   ],
 };
+
